@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./ultracreators.PNG" />
+  <title>Área do Afiliado · Ultra Creators</title>
+  <meta name="description" content="Área exclusiva para afiliados Ultra Creators" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-black: #000000;
+      --color-black-soft: #0b0b0b;
+      --color-black-alt: #111111;
+      --color-black-muted: #181818;
+      --color-gold: #d4af37;
+      --color-gold-dark: #b89418;
+      --color-white: #ffffff;
+      --color-gray: #c7c7c7;
+      --color-gray-soft: #9a9a9a;
+      --max-width: 1180px;
+      --radius-pill: 999px;
+      --radius-card: 18px;
+      --transition-base: 0.28s ease;
+      --header-height: 84px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.88);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      z-index: 1800;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 1.25rem;
+      letter-spacing: 0.28em;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .user-name {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+    }
+
+    .logout-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-pill);
+      background-color: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .logout-btn:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      transform: translateY(-1px);
+    }
+
+    /* Main Content */
+    main {
+      padding-top: calc(var(--header-height) + 3rem);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .welcome h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-gold);
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .welcome p {
+      color: var(--color-gray);
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .dashboard-card {
+      background-color: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-gold);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .dashboard-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.3rem;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .dashboard-card p {
+      margin: 0 0 1.5rem;
+      color: var(--color-gray);
+      font-size: 0.95rem;
+    }
+
+    .card-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+      color: var(--color-black);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: transform var(--transition-base);
+    }
+
+    .card-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .profile-section {
+      background-color: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .profile-section h2 {
+      margin: 0 0 1.5rem;
+      font-size: 1.8rem;
+      color: var(--color-gold);
+    }
+
+    .profile-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: var(--color-gray-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .info-value {
+      font-size: 1rem;
+      color: var(--color-white);
+      font-weight: 500;
+    }
+
+    @media (max-width: 767px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .user-name {
+        display: none;
+      }
+
+      .welcome h1 {
+        font-size: 1.8rem;
+      }
+
+      .profile-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="/">ULTRA CREATORS</a>
+      <div class="user-menu">
+        <span class="user-name" id="headerUserName"></span>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="welcome">
+        <h1 id="welcomeMessage">Bem-vindo(a)!</h1>
+        <p>Sua área exclusiva de afiliado Ultra Creators</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Treinamentos</h3>
+          <p>Acesse o conteúdo completo do Método Ultra Milionário e comece a aprender estratégias vencedoras.</p>
+          <a href="#" class="card-btn">Acessar Cursos</a>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Materiais</h3>
+          <p>Baixe criativos, scripts, páginas e todos os recursos necessários para suas campanhas.</p>
+          <a href="#" class="card-btn">Ver Materiais</a>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+          <h3>Links de Afiliado</h3>
+          <p>Gere seus links rastreados e comece a promover os produtos Ultra Creators hoje mesmo.</p>
+          <a href="#" class="card-btn">Gerar Links</a>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM21 9H3M9 21V9"/></svg>
+          </div>
+          <h3>Dashboard</h3>
+          <p>Acompanhe suas vendas, comissões e performance em tempo real com métricas detalhadas.</p>
+          <a href="#" class="card-btn">Ver Dashboard</a>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3>Suporte</h3>
+          <p>Entre em contato com nossa equipe especializada para tirar dúvidas e receber orientações.</p>
+          <a href="#" class="card-btn">Falar com Suporte</a>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Comunidade</h3>
+          <p>Conecte-se com outros afiliados, troque experiências e participe de mentorias coletivas.</p>
+          <a href="#" class="card-btn">Acessar Comunidade</a>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Meus Dados</h2>
+        <div class="profile-info" id="profileInfo">
+          <!-- Profile data will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const API_URL = 'http://localhost:5000/api/auth';
+
+    // Check if user is authenticated
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      const userData = localStorage.getItem('userData');
+
+      if (!token || !userData) {
+        // Redirect to home if not authenticated
+        window.location.href = 'indexoficial.html';
+        return null;
+      }
+
+      return JSON.parse(userData);
+    }
+
+    // Load user data
+    function loadUserData() {
+      const user = checkAuth();
+      if (!user) return;
+
+      // Update welcome message
+      document.getElementById('welcomeMessage').textContent = `Bem-vindo(a), ${user.nome}!`;
+      document.getElementById('headerUserName').textContent = `${user.nome} ${user.sobrenome}`;
+
+      // Update profile info
+      const profileInfo = document.getElementById('profileInfo');
+      profileInfo.innerHTML = `
+        <div class="info-item">
+          <span class="info-label">Nome Completo</span>
+          <span class="info-value">${user.nome} ${user.sobrenome}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value">${user.email}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Celular</span>
+          <span class="info-value">${user.celular || 'Não informado'}</span>
+        </div>
+        ${user.comOQueTrabalha ? `
+        <div class="info-item">
+          <span class="info-label">Profissão</span>
+          <span class="info-value">${user.comOQueTrabalha}</span>
+        </div>
+        ` : ''}
+        ${user.estadoCivil ? `
+        <div class="info-item">
+          <span class="info-label">Estado Civil</span>
+          <span class="info-value">${user.estadoCivil}</span>
+        </div>
+        ` : ''}
+        ${user.sexo ? `
+        <div class="info-item">
+          <span class="info-label">Gênero</span>
+          <span class="info-value">${user.sexo}</span>
+        </div>
+        ` : ''}
+      `;
+    }
+
+    // Logout function
+    function logout() {
+      if (confirm('Tem certeza que deseja sair?')) {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userData');
+        window.location.href = 'indexoficial.html';
+      }
+    }
+
+    // Event listeners
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    // Load user data on page load
+    document.addEventListener('DOMContentLoaded', loadUserData);
+  </script>
+</body>
+</html>

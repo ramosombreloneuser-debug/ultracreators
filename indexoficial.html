@@ -944,6 +944,266 @@
     }
 
     /* =========================================================
+       AUTHENTICATION MODALS
+    ========================================================= */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background-color: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 2rem 2rem 1rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    .modal-header p {
+      margin: 0.5rem 0 0;
+      color: var(--color-gray);
+      font-size: 0.95rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color var(--transition-base);
+    }
+
+    .modal-close:hover {
+      background-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-gold);
+      stroke-width: 2;
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-white);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .form-group label .required {
+      color: var(--color-gold);
+      margin-left: 0.25rem;
+    }
+
+    .form-group label .optional {
+      color: var(--color-gray-soft);
+      font-weight: 400;
+      font-size: 0.85rem;
+      margin-left: 0.25rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      background-color: var(--color-black-muted);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      color: var(--color-white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+      color: var(--color-black);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition-base), filter var(--transition-base);
+      margin-top: 1rem;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      filter: brightness(0.95);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .modal-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      text-align: center;
+      color: var(--color-gray);
+      font-size: 0.9rem;
+    }
+
+    .modal-footer a {
+      color: var(--color-gold);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .modal-footer a:hover {
+      color: var(--color-white);
+    }
+
+    .error-message {
+      background-color: rgba(255, 68, 68, 0.1);
+      border: 1px solid rgba(255, 68, 68, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .error-message.active {
+      display: block;
+    }
+
+    .success-message {
+      background-color: rgba(80, 200, 120, 0.1);
+      border: 1px solid rgba(80, 200, 120, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      color: #50c878;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .success-message.active {
+      display: block;
+    }
+
+    .login-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-pill);
+      background-color: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      margin-right: 1rem;
+    }
+
+    .login-btn:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 767px) {
+      .modal {
+        max-width: 100%;
+        border-radius: 16px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .login-btn {
+        display: none;
+      }
+    }
+
+    /* =========================================================
        RESPONSIVIDADE
     ========================================================= */
     @media (max-width: 1023px) {
@@ -1073,7 +1333,8 @@
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
-      <a class="header-cta" href="#cta">Quero Acesso</a>
+      <button class="login-btn" id="loginBtn">Login</button>
+      <a class="header-cta register-trigger" href="#cta">Quero Acesso</a>
       <button class="burger" type="button" aria-label="Abrir menu mobile" aria-expanded="false">
         <span></span>
         <span></span>
@@ -1523,7 +1784,7 @@
       <div class="container reveal">
         <h2>Pronto para transformar sua renda?</h2>
         <p>Entre para o Método Ultra Milionário, libere acesso imediato ao ecossistema Ultra Creators e tenha orientação premium para lucrar como afiliado sem complicações.</p>
-        <a class="cta-button" href="https://ramostech.site">Quero Acesso Gratuito Agora</a>
+        <a class="cta-button register-trigger" href="#cta">Quero Acesso Gratuito Agora</a>
         <div class="details">
           <span>Cadastro em menos de 2 minutos</span>
           <span>Sem cartão de crédito</span>
@@ -1589,6 +1850,171 @@
       </div>
     </div>
   </footer>
+
+  <!-- =========================================================
+       AUTHENTICATION MODALS
+  ========================================================= -->
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Login</h2>
+        <p>Acesse sua conta Ultra Creators</p>
+        <button class="modal-close" onclick="closeModal('loginModal')">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="error-message" id="loginError"></div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email <span class="required">*</span></label>
+            <input type="email" id="loginEmail" name="email" required placeholder="seu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Senha <span class="required">*</span></label>
+            <input type="password" id="loginPassword" name="senha" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="form-submit" id="loginSubmitBtn">Entrar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        Não tem uma conta? <a onclick="switchToRegister()">Cadastre-se</a><br>
+        <a onclick="alert('Entre em contato com o suporte: contato@ultracreators.com.br')">Esqueceu a senha?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal-overlay" id="registerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Criar Conta</h2>
+        <p>Junte-se à Ultra Creators e comece a lucrar</p>
+        <button class="modal-close" onclick="closeModal('registerModal')">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="error-message" id="registerError"></div>
+        <div class="success-message" id="registerSuccess"></div>
+        <form id="registerForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regNome">Nome <span class="required">*</span></label>
+              <input type="text" id="regNome" name="nome" required placeholder="João">
+            </div>
+            <div class="form-group">
+              <label for="regSobrenome">Sobrenome <span class="required">*</span></label>
+              <input type="text" id="regSobrenome" name="sobrenome" required placeholder="Silva">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email <span class="required">*</span></label>
+            <input type="email" id="regEmail" name="email" required placeholder="seu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="regSenha">Senha <span class="required">*</span></label>
+            <input type="password" id="regSenha" name="senha" required placeholder="Mínimo 6 caracteres">
+          </div>
+          <div class="form-group">
+            <label for="regCelular">Celular <span class="required">*</span></label>
+            <input type="tel" id="regCelular" name="celular" required placeholder="(11) 99999-9999">
+          </div>
+          <div class="form-group">
+            <label for="regTrabalho">Com o que trabalha? <span class="optional">(opcional)</span></label>
+            <select id="regTrabalho" name="comOQueTrabalha">
+              <option value="">Selecione...</option>
+              <option value="Administração">Administração</option>
+              <option value="Advocacia">Advocacia</option>
+              <option value="Arquitetura">Arquitetura</option>
+              <option value="Artes">Artes</option>
+              <option value="Ciências">Ciências</option>
+              <option value="Comércio">Comércio</option>
+              <option value="Comunicação">Comunicação</option>
+              <option value="Construção Civil">Construção Civil</option>
+              <option value="Contabilidade">Contabilidade</option>
+              <option value="Design">Design</option>
+              <option value="Educação">Educação</option>
+              <option value="Engenharia">Engenharia</option>
+              <option value="Entretenimento">Entretenimento</option>
+              <option value="Estudante">Estudante</option>
+              <option value="Gastronomia">Gastronomia</option>
+              <option value="Gestão">Gestão</option>
+              <option value="Indústria">Indústria</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Medicina">Medicina</option>
+              <option value="Saúde">Saúde</option>
+              <option value="Serviços">Serviços</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Turismo">Turismo</option>
+              <option value="Desempregado(a)">Desempregado(a)</option>
+              <option value="Autônomo(a)">Autônomo(a)</option>
+              <option value="Empreendedor(a)">Empreendedor(a)</option>
+              <option value="Aposentado(a)">Aposentado(a)</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regEstadoCivil">Estado Civil <span class="optional">(opcional)</span></label>
+              <select id="regEstadoCivil" name="estadoCivil">
+                <option value="">Selecione...</option>
+                <option value="Solteiro(a)">Solteiro(a)</option>
+                <option value="Casado(a)">Casado(a)</option>
+                <option value="Divorciado(a)">Divorciado(a)</option>
+                <option value="Viúvo(a)">Viúvo(a)</option>
+                <option value="União Estável">União Estável</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="regSexo">Gênero <span class="optional">(opcional)</span></label>
+              <select id="regSexo" name="sexo">
+                <option value="">Selecione...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Não-binário">Não-binário</option>
+                <option value="Prefiro não informar">Prefiro não informar</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" id="registerSubmitBtn">Criar Minha Conta</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        Já tem uma conta? <a onclick="switchToLogin()">Faça login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Verification Modal -->
+  <div class="modal-overlay" id="verifyEmailModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Verifique seu Email</h2>
+        <p>Enviamos um link de verificação para seu email</p>
+        <button class="modal-close" onclick="closeModal('verifyEmailModal')">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--color-gray); text-align: center; margin-bottom: 1.5rem;">
+          Verifique sua caixa de entrada (e spam) para ativar sua conta. O link é válido por 24 horas.
+        </p>
+        <div style="text-align: center; padding: 2rem;">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <p style="color: var(--color-gray-soft); text-align: center; font-size: 0.9rem;">
+          Não recebeu o email? <a onclick="resendVerification()" style="color: var(--color-gold); cursor: pointer; text-decoration: underline;">Reenviar</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!-- =========================================================
        SCRIPTS
   ========================================================= -->
@@ -1767,6 +2193,299 @@
         });
       }
     })();
+
+    // =========================================================
+    // AUTHENTICATION FUNCTIONS
+    // =========================================================
+    const API_URL = 'http://localhost:5000/api/auth';
+    let currentUserEmail = '';
+
+    // Modal functions
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Clear forms and messages
+        const form = modal.querySelector('form');
+        if (form) form.reset();
+        hideError(modalId.replace('Modal', 'Error'));
+        hideSuccess(modalId.replace('Modal', 'Success'));
+      }
+    }
+
+    function switchToLogin() {
+      closeModal('registerModal');
+      openModal('loginModal');
+    }
+
+    function switchToRegister() {
+      closeModal('loginModal');
+      openModal('registerModal');
+    }
+
+    function showError(elementId, message) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.textContent = message;
+        el.classList.add('active');
+      }
+    }
+
+    function hideError(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.classList.remove('active');
+      }
+    }
+
+    function showSuccess(elementId, message) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.textContent = message;
+        el.classList.add('active');
+      }
+    }
+
+    function hideSuccess(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.classList.remove('active');
+      }
+    }
+
+    // Close modal when clicking overlay
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeModal(overlay.id);
+        }
+      });
+    });
+
+    // Login button click
+    document.getElementById('loginBtn')?.addEventListener('click', () => {
+      openModal('loginModal');
+    });
+
+    // Connect all register triggers
+    document.querySelectorAll('.register-trigger').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal('registerModal');
+      });
+    });
+
+    // Also connect the CTA buttons
+    document.querySelectorAll('a[href="#cta"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (!link.classList.contains('register-trigger')) {
+          e.preventDefault();
+          openModal('registerModal');
+        }
+      });
+    });
+
+    // Login form submission
+    document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError('loginError');
+
+      const submitBtn = document.getElementById('loginSubmitBtn');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Entrando...';
+
+      const formData = {
+        email: document.getElementById('loginEmail').value,
+        senha: document.getElementById('loginPassword').value
+      };
+
+      try {
+        const response = await fetch(`${API_URL}/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Store token
+          localStorage.setItem('authToken', data.token);
+          localStorage.setItem('userData', JSON.stringify(data.data));
+
+          // Redirect to users page
+          window.location.href = 'users.html';
+        } else {
+          showError('loginError', data.message || 'Erro ao fazer login');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        showError('loginError', 'Erro ao conectar com o servidor. Verifique se o backend está rodando.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+
+    // Register form submission
+    document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError('registerError');
+      hideSuccess('registerSuccess');
+
+      const submitBtn = document.getElementById('registerSubmitBtn');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Criando conta...';
+
+      const formData = {
+        nome: document.getElementById('regNome').value,
+        sobrenome: document.getElementById('regSobrenome').value,
+        email: document.getElementById('regEmail').value,
+        senha: document.getElementById('regSenha').value,
+        celular: document.getElementById('regCelular').value,
+        comOQueTrabalha: document.getElementById('regTrabalho').value || null,
+        estadoCivil: document.getElementById('regEstadoCivil').value || null,
+        sexo: document.getElementById('regSexo').value || null
+      };
+
+      // Store email for resend verification
+      currentUserEmail = formData.email;
+
+      try {
+        const response = await fetch(`${API_URL}/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Show success message
+          showSuccess('registerSuccess', data.message);
+
+          // Clear form
+          document.getElementById('registerForm').reset();
+
+          // Show verification modal after 2 seconds
+          setTimeout(() => {
+            closeModal('registerModal');
+            openModal('verifyEmailModal');
+          }, 2000);
+        } else {
+          showError('registerError', data.message || 'Erro ao criar conta');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      } catch (error) {
+        console.error('Register error:', error);
+        showError('registerError', 'Erro ao conectar com o servidor. Verifique se o backend está rodando.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+
+    // Resend verification email
+    async function resendVerification() {
+      if (!currentUserEmail) {
+        alert('Por favor, tente se cadastrar novamente.');
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/resend-verification`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: currentUserEmail })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert('Email de verificação reenviado com sucesso!');
+        } else {
+          alert(data.message || 'Erro ao reenviar email');
+        }
+      } catch (error) {
+        console.error('Resend error:', error);
+        alert('Erro ao conectar com o servidor');
+      }
+    }
+
+    // Check for email verification token in URL
+    window.addEventListener('DOMContentLoaded', async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
+
+      if (token) {
+        try {
+          const response = await fetch(`${API_URL}/verify-email`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            // Store token and redirect
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('userData', JSON.stringify(data.data));
+
+            alert('Email verificado com sucesso! Redirecionando...');
+            window.location.href = 'users.html';
+          } else {
+            alert(data.message || 'Token de verificação inválido ou expirado');
+            window.location.href = 'indexoficial.html';
+          }
+        } catch (error) {
+          console.error('Verification error:', error);
+          alert('Erro ao verificar email');
+          window.location.href = 'indexoficial.html';
+        }
+      }
+    });
+
+    // Check authentication status
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      const userData = localStorage.getItem('userData');
+
+      if (token && userData) {
+        // User is logged in, you can show their name or a logout button
+        const user = JSON.parse(userData);
+        const loginBtn = document.getElementById('loginBtn');
+        if (loginBtn) {
+          loginBtn.textContent = `Olá, ${user.nome}`;
+          loginBtn.onclick = () => {
+            window.location.href = 'users.html';
+          };
+        }
+      }
+    }
+
+    // Run auth check on page load
+    checkAuth();
   </script>
 </body>
 </html>
