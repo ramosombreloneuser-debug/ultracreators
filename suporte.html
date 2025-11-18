@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./ultracreators.PNG" />
+  <title>Suporte · Ultra Creators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-black: #000000;
+      --color-black-alt: #111111;
+      --color-gold: #d4af37;
+      --color-white: #ffffff;
+      --color-gray: #c7c7c7;
+      --max-width: 1180px;
+      --radius-card: 18px;
+      --header-height: 84px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.7;
+    }
+    .container {
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+    .brand {
+      font-size: 1.25rem;
+      letter-spacing: 0.28em;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .user-name {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+    }
+    .logout-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .logout-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-1px);
+    }
+    main {
+      padding-top: calc(var(--header-height) + 3rem);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--color-gray);
+      font-size: 1.1rem;
+    }
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .support-card {
+      background: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .support-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
+    }
+    .support-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .support-card h3 {
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+    .support-card p {
+      color: var(--color-gray);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .support-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, var(--color-gold), #b89418);
+      color: var(--color-black);
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+    .support-btn:hover {
+      transform: translateY(-2px);
+    }
+    .contact-form {
+      background: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 3rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .contact-form h2 {
+      color: var(--color-gold);
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      color: var(--color-gray);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--color-black);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      color: var(--color-white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--color-gold), #b89418);
+      color: var(--color-black);
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+    }
+    .faq-section {
+      margin-top: 4rem;
+    }
+    .faq-section h2 {
+      color: var(--color-gold);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .faq-item {
+      background: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+    }
+    .faq-question {
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    .faq-answer {
+      color: var(--color-gray);
+      line-height: 1.7;
+    }
+    @media (max-width: 767px) {
+      .support-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 2rem 1.5rem; }
+      .user-name { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="users.html">ULTRA CREATORS</a>
+      <div class="user-menu">
+        <span class="user-name" id="headerUserName"></span>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Central de Suporte</h1>
+        <p>Estamos aqui para ajudar você a ter sucesso</p>
+      </div>
+
+      <div class="support-grid">
+        <div class="support-card">
+          <div class="support-icon">💬</div>
+          <h3>WhatsApp</h3>
+          <p>Fale diretamente com nossa equipe pelo WhatsApp e receba atendimento rápido.</p>
+          <a href="https://wa.me/5577981621007" class="support-btn" target="_blank">Abrir WhatsApp</a>
+        </div>
+
+        <div class="support-card">
+          <div class="support-icon">📧</div>
+          <h3>E-mail</h3>
+          <p>Envie sua dúvida por e-mail e nossa equipe responderá em até 24 horas.</p>
+          <a href="mailto:suporte@ultracreators.com" class="support-btn">Enviar E-mail</a>
+        </div>
+
+        <div class="support-card">
+          <div class="support-icon">📚</div>
+          <h3>Base de Conhecimento</h3>
+          <p>Acesse tutoriais, guias e documentação completa da plataforma.</p>
+          <a href="#" class="support-btn">Ver Tutoriais</a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Envie sua Mensagem</h2>
+        <form id="supportForm">
+          <div class="form-group">
+            <label for="subject">Assunto</label>
+            <select id="subject" required>
+              <option value="">Selecione um assunto</option>
+              <option value="tecnico">Problema Técnico</option>
+              <option value="pagamento">Dúvida sobre Pagamentos</option>
+              <option value="afiliado">Links de Afiliado</option>
+              <option value="treinamento">Acesso aos Treinamentos</option>
+              <option value="outro">Outro Assunto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" placeholder="Descreva sua dúvida ou problema..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Enviar Mensagem</button>
+        </form>
+      </div>
+
+      <div class="faq-section">
+        <h2>Perguntas Frequentes</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">Como gero meu link de afiliado?</div>
+          <div class="faq-answer">
+            Acesse a página "Links de Afiliado" no menu principal. Lá você encontrará seus links exclusivos para cada produto, já com seu ID de afiliado rastreado.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Quando recebo minhas comissões?</div>
+          <div class="faq-answer">
+            As comissões são pagas mensalmente, no dia 15 de cada mês, referente às vendas do mês anterior. O valor mínimo para saque é de R$ 100,00.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Como acompanho minhas vendas?</div>
+          <div class="faq-answer">
+            No Dashboard você tem acesso a todas as suas métricas em tempo real: cliques, conversões, comissões e muito mais.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Qual a taxa de comissão?</div>
+          <div class="faq-answer">
+            Nossas comissões variam de 40% a 50% dependendo do produto. Você pode ver a taxa específica de cada produto na página de Links de Afiliado.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Posso usar os materiais de marketing?</div>
+          <div class="faq-answer">
+            Sim! Todos os materiais da seção "Materiais" estão disponíveis para download e uso em suas campanhas. Isso inclui banners, vídeos, scripts e páginas prontas.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Check authentication
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      const userData = localStorage.getItem('userData');
+
+      if (!token || !userData) {
+        window.location.href = 'indexoficial.html';
+        return null;
+      }
+
+      return JSON.parse(userData);
+    }
+
+    // Load user data
+    function loadUserData() {
+      const user = checkAuth();
+      if (!user) return;
+
+      // Update header with user name
+      document.getElementById('headerUserName').textContent = `${user.nome} ${user.sobrenome}`;
+    }
+
+    // Logout function
+    function logout() {
+      if (confirm('Tem certeza que deseja sair?')) {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userData');
+        window.location.href = 'indexoficial.html';
+      }
+    }
+
+    // Event listeners
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    document.getElementById('supportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      if (subject && message) {
+        alert('Mensagem enviada com sucesso! Nossa equipe responderá em breve.');
+        this.reset();
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', loadUserData);
+  </script>
+</body>
+</html>

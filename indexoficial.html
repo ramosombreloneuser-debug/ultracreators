@@ -5,33 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="./ultracreators.PNG" />
   <title>Ultra Creators · Método Ultra Milionário</title>
-  <meta name="description" content="Conheça o Método Ultra Milionário da Ultra Creators e transforme sua renda como afiliado com um treinamento 100% gratuito." />
+  <meta name="description" content="Descubra o Método Ultra Milionário e transforme sua vida ganhando de R$5.000 a R$25.000 por mês como afiliado digital." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* =========================================================
-       RESET E VARIÁVEIS
+       RESET E VARIÁVEIS PREMIUM
     ========================================================= */
     :root {
-      --color-black: #000000;
-      --color-black-soft: #0b0b0b;
-      --color-black-alt: #111111;
-      --color-black-muted: #181818;
-      --color-gold: #d4af37;
-      --color-gold-dark: #b89418;
-      --color-white: #ffffff;
-      --color-gray: #c7c7c7;
-      --color-gray-soft: #9a9a9a;
-      --max-width: 1180px;
+      --preto-profundo: #000000;
+      --preto-soft: #0a0a0a;
+      --preto-card: #111111;
+      --preto-card-alt: #1a1a1a;
+      --dourado-principal: #d4af37;
+      --dourado-claro: #f4d03f;
+      --dourado-escuro: #b89418;
+      --branco: #ffffff;
+      --cinza-claro: #e5e5e5;
+      --cinza-medio: #9a9a9a;
+      --gradiente-dourado: linear-gradient(135deg, #f4d03f, #d4af37, #b89418);
+      --sombra-premium: 0 20px 60px rgba(212, 175, 55, 0.3);
+      --glow-dourado: 0 0 30px rgba(212, 175, 55, 0.5);
+      --max-width: 1200px;
+      --radius-card: 20px;
       --radius-pill: 999px;
-      --radius-card: 18px;
-      --transition-base: 0.28s ease;
-      --header-height: 84px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* =========================================================
+       ANIMAÇÕES PREMIUM
+    ========================================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* =========================================================
+       RESET BÁSICO
+    ========================================================= */
     *, *::before, *::after {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -41,16 +99,33 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--color-black);
-      color: var(--color-white);
-      line-height: 1.7;
+      background-color: var(--preto-profundo);
+      color: var(--branco);
+      line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background com padrão geométrico sutil */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(30deg, transparent 48%, rgba(212, 175, 55, 0.03) 50%, transparent 52%),
+        linear-gradient(150deg, transparent 48%, rgba(212, 175, 55, 0.03) 50%, transparent 52%);
+      background-size: 60px 60px;
+      z-index: -1;
+      opacity: 0.4;
     }
 
     img {
-      display: block;
       max-width: 100%;
-      border-radius: 50%;
+      height: auto;
+      display: block;
     }
 
     a {
@@ -67,8 +142,6 @@
     }
 
     ul {
-      margin: 0;
-      padding: 0;
       list-style: none;
     }
 
@@ -77,1068 +150,162 @@
       margin: 0 auto;
     }
 
-    .section-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header span {
-      text-transform: uppercase;
-      letter-spacing: 0.25rem;
-      font-size: 0.7rem;
-      color: var(--color-gold);
-    }
-
-    .section-header h2 {
-      margin: 0;
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .section-header p {
-      margin: 0 auto;
-      max-width: 48ch;
-      color: var(--color-gray);
-      font-size: 1rem;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      padding: 0.95rem 2.8rem;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
-      color: var(--color-black);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: transform var(--transition-base), box-shadow var(--transition-base), filter var(--transition-base);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      filter: brightness(0.95);
-      box-shadow: 0 12px 26px rgba(212, 175, 55, 0.25);
-    }
-
-    .cta-button:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    .tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--color-gold);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .tagline::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 2px solid var(--color-gold);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* =========================================================
-       HEADER
+       GLASSMORPHISM CARD
     ========================================================= */
-    header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: var(--header-height);
-      display: flex;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.88);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
-      z-index: 1800;
+    .glass-card {
+      background: rgba(17, 17, 17, 0.7);
       backdrop-filter: blur(10px);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      width: min(calc(100% - 3rem), var(--max-width));
-      margin: 0 auto;
-    }
-
-    .brand {
-      font-size: 1.25rem;
-      letter-spacing: 0.28em;
-      font-weight: 600;
-      color: var(--color-gold);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      color: var(--color-gray);
-      position: relative;
-      padding-bottom: 0.4rem;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 1px;
-      background: var(--color-gold);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform var(--transition-base);
-    }
-
-    .nav-links a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .header-cta {
-      padding: 0.6rem 1.8rem;
-      border-radius: var(--radius-pill);
-      background-color: var(--color-gold);
-      color: var(--color-black);
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: transform var(--transition-base), filter var(--transition-base), box-shadow var(--transition-base);
-    }
-
-    .header-cta:hover {
-      transform: translateY(-1px);
-      filter: brightness(0.95);
-      box-shadow: 0 12px 22px rgba(212, 175, 55, 0.25);
-    }
-
-    .burger {
-      display: none;
-      position: relative;
-      flex-direction: column;
-      gap: 6px;
-      width: 38px;
-      height: 30px;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 2400;
-    }
-
-    .burger span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background-color: var(--color-gold);
-      transition: transform var(--transition-base), opacity var(--transition-base);
-    }
-
-    .burger.is-active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .burger.is-active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .burger.is-active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .mobile-nav {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #000000;
-      transform: translateX(100%);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: transform 0.4s ease, opacity 0.35s ease, visibility 0.35s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: calc(var(--header-height) + 2rem) 2.5rem 2.8rem;
-      gap: 2.5rem;
-      z-index: 2000;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.05);
-    }
-
-    .mobile-nav.active {
-      transform: translateX(0);
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .mobile-nav ul {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.75rem;
-      font-size: 1.1rem;
-      color: var(--color-white);
-      width: 100%;
-    }
-
-    .mobile-nav ul a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      width: 100%;
-      padding: 0.35rem 0;
-    }
-
-    .mobile-nav ul a::before {
-      content: '';
-      width: 12px;
-      height: 1px;
-      background-color: var(--color-gold);
-      transition: width var(--transition-base);
-    }
-
-    .mobile-nav ul a:hover::before {
-      width: 22px;
-    }
-
-    .mobile-nav ul a:focus-visible {
-      outline: 2px solid rgba(212, 175, 55, 0.7);
-      outline-offset: 6px;
-    }
-
-    .mobile-nav .header-cta {
-      align-self: stretch;
-      display: inline-flex;
-      justify-content: center;
-      padding: 0.9rem 1.5rem;
-    }
-
-    body.nav-open {
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-    main {
-      padding-top: var(--header-height);
-    }
-
-    section {
-      padding: clamp(4rem, 8vw, 6.5rem) 0;
-    }
-
-    .hero {
-      min-height: calc(100vh - var(--header-height));
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 15% auto auto 50%;
-      width: 520px;
-      height: 520px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.18), transparent 65%);
-      filter: blur(6px);
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 2rem;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 1rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: var(--color-gold);
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2.8rem, 5vw, 4rem);
-      color: var(--color-gold);
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      max-width: 14ch;
-    }
-
-    .hero p {
-      margin: 0;
-      font-size: 1.05rem;
-      color: var(--color-gray);
-      max-width: 52ch;
-    }
-
-    .hero .cta-group {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.25rem;
-    }
-
-    .hero .proof {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      color: var(--color-gold);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .hero .proof svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: var(--color-gold);
-      stroke-width: 1.8;
-    }
-
-    /* =========================================================
-       NÚMEROS
-    ========================================================= */
-    .numbers-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.8rem;
-    }
-
-    .numbers-card {
-      background: linear-gradient(145deg, rgba(24, 24, 24, 0.9), rgba(10, 10, 10, 0.9));
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      border-radius: var(--radius-card);
-      padding: 2.5rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .numbers-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 60%);
-      pointer-events: none;
-    }
-
-    .numbers-icon {
-      width: 42px;
-      height: 42px;
-      margin-bottom: 1.5rem;
-    }
-
-    .numbers-value {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      color: var(--color-gold);
-      font-weight: 600;
-      margin: 0 0 0.4rem;
-    }
-
-    .numbers-label {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    /* =========================================================
-       COMO FUNCIONA
-    ========================================================= */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .step-card {
-      background-color: var(--color-black-alt);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       border-radius: var(--radius-card);
-      padding: 2.2rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.12);
-    }
-
-    .step-label {
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(212, 175, 55, 0.8);
-    }
-
-    .step-card h3 {
-      margin: 0;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .step-card p {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    .icon-circle {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-    }
-
-    .icon-circle svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--color-gold);
-      stroke-width: 1.6;
-      fill: none;
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra-premium);
     }
 
     /* =========================================================
-       PROVA SOCIAL
+       MODAIS DE AUTENTICAÇÃO
     ========================================================= */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .testimonial-card {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.18);
-      border-radius: var(--radius-card);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial-card::before {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.6rem;
-      font-size: 3rem;
-      color: rgba(212, 175, 55, 0.16);
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .testimonial-author img {
-      width: 58px;
-      height: 58px;
-      object-fit: cover;
-      border: 2px solid rgba(212, 175, 55, 0.4);
-    }
-
-    .testimonial-author strong {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .testimonial-text {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.98rem;
-    }
-    /* =========================================================
-       DIFERENCIAIS E OFERTA
-    ========================================================= */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .feature-card {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.18);
-      border-radius: var(--radius-card);
-      padding: 2.1rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .feature-card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .feature-card p {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    .offer-grid {
-      margin-top: 3.5rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .offer-card {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      border-radius: var(--radius-card);
-      padding: 2.2rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      position: relative;
-    }
-
-    .offer-card::after {
-      content: '';
-      position: absolute;
-      inset: auto 20% -2px 20%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
-    }
-
-    .offer-card h3 {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-
-    .offer-card p {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    /* =========================================================
-       BÔNUS
-    ========================================================= */
-    .bonus-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .bonus-card {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: var(--radius-card);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-
-    .bonus-card span {
-      font-size: 0.85rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(212, 175, 55, 0.75);
-    }
-
-    .bonus-card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    .bonus-card p {
-      margin: 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    /* =========================================================
-       FAQ
-    ========================================================= */
-    .faq-list {
-      max-width: 780px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .faq-item {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 1.2rem 1.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: none;
-      color: var(--color-white);
-      font-size: 1rem;
-      font-weight: 500;
-      text-align: left;
-    }
-
-    .faq-question svg {
-      width: 18px;
-      height: 18px;
-      fill: none;
-      stroke: var(--color-gold);
-      stroke-width: 2;
-      transition: transform var(--transition-base);
-    }
-
-    .faq-question[aria-expanded="true"] svg {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-
-    .faq-answer p {
-      margin: 0;
-      padding: 0 1.6rem 1.4rem;
-      color: var(--color-gray);
-      font-size: 0.96rem;
-    }
-
-    /* =========================================================
-       CTA FINAL
-    ========================================================= */
-    .final-cta {
-      text-align: center;
-      position: relative;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      inset: 15% 20% 10% 20%;
-      border: 1px solid rgba(212, 175, 55, 0.18);
-      border-radius: 30px;
-      pointer-events: none;
-    }
-
-    .final-cta h2 {
-      margin: 0 0 1.2rem;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      color: var(--color-gold);
-    }
-
-    .final-cta p {
-      margin: 0 auto 2rem;
-      max-width: 50ch;
-      color: var(--color-gray);
-    }
-
-    .final-cta .details {
-      margin-top: 1.8rem;
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      color: var(--color-gray);
-      font-size: 0.95rem;
-    }
-
-    .final-cta .details span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .final-cta .details span::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--color-gold);
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-    footer {
-      background-color: var(--color-black);
-      border-top: 1px solid rgba(212, 175, 55, 0.15);
-      padding: 3.5rem 0 2.5rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-column h4 {
-      margin: 0 0 1.2rem;
-      font-size: 1rem;
-      color: var(--color-gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .footer-column p,
-    .footer-column a,
-    .footer-column li {
-      font-size: 0.92rem;
-      color: var(--color-gray);
-      margin-bottom: 0.6rem;
-    }
-
-    .footer-column a:hover {
-      color: var(--color-gold);
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .footer-socials a {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background var(--transition-base), transform var(--transition-base);
-    }
-
-    .footer-socials a svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--color-gold);
-    }
-
-    .footer-socials a:hover {
-      background-color: rgba(212, 175, 55, 0.12);
-      transform: translateY(-2px);
-    }
-
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(212, 175, 55, 0.12);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
-      color: var(--color-gray);
-      font-size: 0.85rem;
-    }
-
-    .footer-bottom a {
-      color: var(--color-gray);
-    }
-
-    .footer-bottom a:hover {
-      color: var(--color-gold);
-    }
-
-    /* =========================================================
-       BOTÃO VOLTAR AO TOPO
-    ========================================================= */
-    .back-to-top {
-      position: fixed;
-      right: 2rem;
-      bottom: 2rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-base), transform var(--transition-base);
-      z-index: 900;
-    }
-
-    .back-to-top svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--color-gold);
-      stroke-width: 2;
-      fill: none;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    /* =========================================================
-       AUTHENTICATION MODALS
-    ========================================================= */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      padding: 1rem;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .modal {
-      background-color: var(--color-black-alt);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 20px;
-      max-width: 500px;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 480px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
+      padding: 2.5rem 2rem;
       position: relative;
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
-    }
-
-    .modal-overlay.active .modal {
-      transform: scale(1);
-    }
-
-    .modal-header {
-      padding: 2rem 2rem 1rem;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      position: relative;
-    }
-
-    .modal-header h2 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: var(--color-gold);
-      font-weight: 700;
-    }
-
-    .modal-header p {
-      margin: 0.5rem 0 0;
-      color: var(--color-gray);
-      font-size: 0.95rem;
+      animation: fadeInUp 0.4s ease;
+      margin: auto;
     }
 
     .modal-close {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: rgba(212, 175, 55, 0.1);
+      background: rgba(212, 175, 55, 0.1);
       border: 1px solid rgba(212, 175, 55, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      color: var(--dourado-principal);
       cursor: pointer;
-      transition: background-color var(--transition-base);
+      transition: all var(--transition);
     }
 
     .modal-close:hover {
-      background-color: rgba(212, 175, 55, 0.2);
+      background: rgba(212, 175, 55, 0.2);
+      transform: rotate(90deg);
     }
 
-    .modal-close svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--color-gold);
-      stroke-width: 2;
-    }
-
-    .modal-body {
-      padding: 2rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
+    .modal-content h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      color: var(--dourado-principal);
       margin-bottom: 0.5rem;
-      color: var(--color-white);
-      font-size: 0.95rem;
-      font-weight: 500;
+      padding-right: 2.5rem;
     }
 
-    .form-group label .required {
-      color: var(--color-gold);
-      margin-left: 0.25rem;
+    .modal-content > p {
+      color: var(--cinza-medio);
+      margin-bottom: 1.5rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
     }
 
-    .form-group label .optional {
-      color: var(--color-gray-soft);
-      font-weight: 400;
-      font-size: 0.85rem;
-      margin-left: 0.25rem;
-    }
-
-    .form-group input,
-    .form-group select {
+    .modal-content input,
+    .modal-content select {
       width: 100%;
-      padding: 0.9rem 1.2rem;
-      background-color: var(--color-black-muted);
+      padding: 0.875rem 1.25rem;
+      margin-bottom: 0.875rem;
+      background: rgba(26, 26, 26, 0.9);
       border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 12px;
-      color: var(--color-white);
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+      border-radius: 10px;
+      color: var(--branco);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.875rem, 2vw, 0.95rem);
+      transition: all var(--transition);
     }
 
-    .form-group input:focus,
-    .form-group select:focus {
+    .modal-content select {
+      cursor: pointer;
+    }
+
+    .modal-content select option {
+      background: var(--preto-card);
+      color: var(--branco);
+    }
+
+    .modal-content input:focus,
+    .modal-content select:focus {
       outline: none;
-      border-color: var(--color-gold);
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+      border-color: var(--dourado-principal);
+      background: rgba(26, 26, 26, 1);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
     }
 
-    .form-group select {
-      cursor: pointer;
+    .modal-content input::placeholder {
+      color: var(--cinza-medio);
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-submit {
+    .modal-content button[type="submit"] {
       width: 100%;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
-      color: var(--color-black);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-radius: var(--radius-pill);
-      border: none;
-      cursor: pointer;
-      transition: transform var(--transition-base), filter var(--transition-base);
       margin-top: 1rem;
     }
 
-    .form-submit:hover {
-      transform: translateY(-2px);
-      filter: brightness(0.95);
-    }
-
-    .form-submit:disabled {
+    .modal-content button[type="submit"]:disabled {
       opacity: 0.6;
       cursor: not-allowed;
-      transform: none;
     }
 
-    .modal-footer {
-      padding: 1.5rem 2rem;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    .modal-link {
       text-align: center;
-      color: var(--color-gray);
+      margin-top: 1.5rem;
+      color: var(--cinza-medio);
       font-size: 0.9rem;
     }
 
-    .modal-footer a {
-      color: var(--color-gold);
+    .modal-link a {
+      color: var(--dourado-principal);
       text-decoration: underline;
+      font-weight: 600;
       cursor: pointer;
     }
 
-    .modal-footer a:hover {
-      color: var(--color-white);
+    .modal-link a:hover {
+      color: var(--dourado-claro);
     }
 
     .error-message {
-      background-color: rgba(255, 68, 68, 0.1);
-      border: 1px solid rgba(255, 68, 68, 0.3);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
+      background: rgba(255, 59, 48, 0.1);
+      border: 1px solid rgba(255, 59, 48, 0.3);
       color: #ff6b6b;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
       font-size: 0.9rem;
       display: none;
     }
@@ -1148,12 +315,12 @@
     }
 
     .success-message {
-      background-color: rgba(80, 200, 120, 0.1);
-      border: 1px solid rgba(80, 200, 120, 0.3);
-      border-radius: 8px;
+      background: rgba(52, 199, 89, 0.1);
+      border: 1px solid rgba(52, 199, 89, 0.3);
+      color: #34c759;
       padding: 1rem;
-      margin-bottom: 1.5rem;
-      color: #50c878;
+      border-radius: 12px;
+      margin-bottom: 1rem;
       font-size: 0.9rem;
       display: none;
     }
@@ -1162,59 +329,907 @@
       display: block;
     }
 
-    .login-btn {
-      padding: 0.6rem 1.5rem;
-      border-radius: var(--radius-pill);
-      background-color: transparent;
-      border: 1px solid var(--color-gold);
-      color: var(--color-gold);
-      font-weight: 600;
+    /* =========================================================
+       HEADER PREMIUM
+    ========================================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      z-index: 1000;
+      transition: all var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--dourado-principal);
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--cinza-claro);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradiente-dourado);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--dourado-principal);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      padding: 0.7rem 1.8rem;
+      background: var(--gradiente-dourado);
+      color: var(--preto-profundo);
+      font-weight: 700;
       font-size: 0.9rem;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all var(--transition);
+    }
+
+    .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--glow-dourado);
+    }
+
+    /* Mobile Menu */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
       cursor: pointer;
-      transition: all var(--transition-base);
-      margin-right: 1rem;
     }
 
-    .login-btn:hover {
-      background-color: rgba(212, 175, 55, 0.1);
-      transform: translateY(-1px);
+    .burger span {
+      width: 28px;
+      height: 3px;
+      background: var(--dourado-principal);
+      border-radius: 3px;
+      transition: all var(--transition);
     }
 
-    @media (max-width: 767px) {
-      .modal {
-        max-width: 100%;
-        border-radius: 16px;
-      }
+    .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
 
-      .form-row {
-        grid-template-columns: 1fr;
-      }
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
 
-      .modal-header {
-        padding: 1.5rem 1.5rem 1rem;
-      }
+    .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
 
-      .modal-body {
-        padding: 1.5rem;
-      }
+    .mobile-nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background: rgba(0, 0, 0, 0.98);
+      backdrop-filter: blur(20px);
+      transform: translateX(100%);
+      transition: transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
 
-      .login-btn {
-        display: none;
-      }
+    .mobile-nav.active {
+      transform: translateX(0);
+    }
+
+    .mobile-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .mobile-nav ul a {
+      font-size: 1.2rem;
+      color: var(--cinza-claro);
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       HERO SECTION PREMIUM
+    ========================================================= */
+    main {
+      padding-top: 80px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Glow dourado no background */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
+      filter: blur(80px);
+      animation: glow 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.5rem;
+      background: rgba(212, 175, 55, 0.1);
+      border: 2px solid var(--dourado-principal);
+      border-radius: var(--radius-pill);
+      color: var(--dourado-principal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--dourado-principal);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
+    }
+
+    .hero h1 .highlight {
+      background: var(--gradiente-dourado);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      position: relative;
+    }
+
+    .hero h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradiente-dourado);
+      opacity: 0.5;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--cinza-claro);
+      max-width: 55ch;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .cta-premium {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.5rem 3rem;
+      background: var(--gradiente-dourado);
+      color: var(--preto-profundo);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--glow-dourado);
+      transition: all var(--transition);
+      animation: ctaPulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-premium:hover::before {
+      left: 100%;
+    }
+
+    .cta-premium:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
+    }
+
+    .cta-premium:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      animation: none;
+    }
+
+    .cta-premium svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--preto-profundo);
+    }
+
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--dourado-principal);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .social-proof svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--dourado-principal);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* =========================================================
+       NÚMEROS/STATS SECTION
+    ========================================================= */
+    section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .numbers-section {
+      background: linear-gradient(180deg, var(--preto-profundo), var(--preto-soft));
+      position: relative;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .numbers-card {
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .numbers-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .numbers-card:hover::before {
+      opacity: 1;
+    }
+
+    .numbers-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--dourado-principal);
+      box-shadow: var(--sombra-premium);
+    }
+
+    .numbers-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradiente-dourado);
+      border-radius: 50%;
+      box-shadow: var(--glow-dourado);
+    }
+
+    .numbers-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--preto-profundo);
+    }
+
+    .numbers-value {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--dourado-principal);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .numbers-label {
+      color: var(--cinza-claro);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       SECTION HEADER
+    ========================================================= */
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--dourado-principal);
+      border-radius: var(--radius-pill);
+      color: var(--dourado-principal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--cinza-medio);
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       BENEFÍCIOS SECTION
+    ========================================================= */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .benefit-card:hover::before {
+      opacity: 1;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--dourado-principal);
+      box-shadow: var(--sombra-premium);
+    }
+
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--gradiente-dourado);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--preto-profundo);
+      fill: none;
+      stroke-width: 2.5;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--branco);
+    }
+
+    .benefit-card p {
+      color: var(--cinza-claro);
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       MÉTODO/PROCESSO SECTION
+    ========================================================= */
+    .method-steps {
+      display: grid;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .step-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-card);
+      padding: 2.5rem;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .step-card:hover {
+      transform: translateX(10px);
+      border-color: var(--dourado-principal);
+      box-shadow: var(--sombra-premium);
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--gradiente-dourado);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--preto-profundo);
+      flex-shrink: 0;
+      box-shadow: var(--glow-dourado);
+    }
+
+    .step-content h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--dourado-principal);
+    }
+
+    .step-content p {
+      color: var(--cinza-claro);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       DEPOIMENTOS SECTION
+    ========================================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-card);
+      padding: 2.5rem;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--dourado-principal);
+      box-shadow: var(--sombra-premium);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .testimonial-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--dourado-principal);
+    }
+
+    .testimonial-info h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .testimonial-stars {
+      color: var(--dourado-principal);
+      font-size: 1.1rem;
+      letter-spacing: 0.2rem;
+    }
+
+    .testimonial-text {
+      color: var(--cinza-claro);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .testimonial-result {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: var(--radius-pill);
+      color: var(--dourado-principal);
+      font-weight: 700;
+      font-size: 0.9rem;
+      align-self: flex-start;
+    }
+
+    /* =========================================================
+       FAQ SECTION
+    ========================================================= */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: var(--dourado-principal);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      background: transparent;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--branco);
+      transition: all var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--dourado-principal);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--dourado-principal);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.5s ease;
+    }
+
+    .faq-answer-content {
+      padding: 0 2rem 1.5rem;
+      color: var(--branco);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 1000px;
+      opacity: 1;
+      padding-top: 0.5rem;
+    }
+
+    /* =========================================================
+       CTA FINAL SECTION
+    ========================================================= */
+    .final-cta-section {
+      background: linear-gradient(135deg, var(--preto-soft), var(--preto-profundo));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent 70%);
+      filter: blur(100px);
+      animation: glow 5s ease-in-out infinite;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      background: rgba(255, 59, 48, 0.2);
+      border: 2px solid #ff3b30;
+      border-radius: var(--radius-pill);
+      color: #ff6b6b;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      animation: ctaPulse 2s infinite;
+    }
+
+    .final-cta-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .final-cta-content p {
+      font-size: 1.2rem;
+      color: var(--cinza-claro);
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--dourado-principal);
+      font-weight: 600;
+    }
+
+    .guarantee svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--dourado-principal);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      background: var(--preto-profundo);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dourado-principal);
+    }
+
+    .footer-section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-section a {
+      color: var(--cinza-claro);
+      transition: color var(--transition);
+    }
+
+    .footer-section a:hover {
+      color: var(--dourado-principal);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--dourado-principal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--gradiente-dourado);
+      transform: translateY(-3px);
+      box-shadow: var(--glow-dourado);
+    }
+
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--dourado-principal);
+    }
+
+    .social-links a:hover svg {
+      fill: var(--preto-profundo);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--cinza-medio);
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* =========================================================
        RESPONSIVIDADE
     ========================================================= */
     @media (max-width: 1023px) {
-      header {
-        --header-height: 76px;
-      }
-
-      .header-inner {
-        width: min(calc(100% - 2.5rem), var(--max-width));
-      }
-
       nav {
         display: none;
       }
@@ -1223,575 +1238,586 @@
         display: flex;
       }
 
-      .numbers-grid,
-      .steps-grid,
-      .features-grid,
-      .offer-grid,
-      .bonus-grid,
-      .testimonials-grid,
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero .container {
-        gap: 1.5rem;
+      .step-card {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
 
-      .hero .cta-group {
-        align-items: flex-start;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-nav {
-        display: none;
+      .step-number {
+        margin: 0 auto;
       }
     }
 
     @media (max-width: 767px) {
-      .container {
-        width: min(calc(100% - 2rem), var(--max-width));
-      }
-
-      section {
-        padding: 3.8rem 0;
-      }
-
-      .mobile-nav {
-        padding: calc(var(--header-height) + 1.5rem) 1.75rem 2.5rem;
-        gap: 2rem;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 4.5rem 0 4rem;
-      }
-
-      .hero::before {
-        width: 360px;
-        height: 360px;
-        inset: 25% auto auto 50%;
-      }
-
       .hero h1 {
-        font-size: clamp(2.4rem, 10vw, 3rem);
+        font-size: 2.5rem;
       }
 
-      .hero .cta-group {
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .cta-premium {
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
         width: 100%;
       }
 
-      .hero .cta-group .cta-button {
-        width: 100%;
+      .numbers-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero .proof {
-        font-size: 0.9rem;
-      }
-
-      .numbers-grid,
-      .steps-grid,
-      .features-grid,
-      .offer-grid,
-      .bonus-grid,
-      .testimonials-grid,
-      .footer-grid {
+      .benefits-grid,
+      .testimonials-grid {
         grid-template-columns: 1fr;
       }
 
       .section-header h2 {
-        font-size: clamp(1.85rem, 8vw, 2.4rem);
+        font-size: 2rem;
       }
 
-      .final-cta::before {
-        inset: 10% 10% 8% 10%;
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
 
-      .back-to-top {
+      .social-links {
+        justify-content: center;
+      }
+
+      .modal-content {
+        padding: 1.75rem 1.25rem;
+        max-height: 85vh;
+      }
+
+      .modal-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.375rem;
+      }
+
+      .modal-content > p {
+        font-size: 0.875rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .modal-content input,
+      .modal-content select {
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+      }
+
+      .modal-close {
+        width: 36px;
+        height: 36px;
+        top: 1rem;
         right: 1rem;
-        bottom: 1.4rem;
+        font-size: 1.25rem;
+      }
+
+      .modal-link {
+        font-size: 0.85rem;
+        margin-top: 1.25rem;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- =========================================================
+       MODAIS DE AUTENTICAÇÃO
+  ========================================================= -->
+
+  <!-- MODAL DE REGISTRO -->
+  <div id="modalRegistro" class="modal">
+    <div class="modal-content glass-card">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2>Criar Conta</h2>
+      <p>Junte-se a Ultra Creators e comece a lucrar</p>
+
+      <div class="error-message" id="errorRegistro"></div>
+
+      <form id="formRegistro">
+        <input type="text" name="nome" placeholder="Nome *" required>
+        <input type="text" name="sobrenome" placeholder="Sobrenome *" required>
+        <input type="email" name="email" placeholder="Email *" required>
+        <input type="password" name="senha" placeholder="Senha (mínimo 6 caracteres) *" required minlength="6">
+        <input type="tel" name="celular" placeholder="Celular *" required>
+
+        <select name="comOQueTrabalha">
+          <option value="">Com o que trabalha? (opcional)</option>
+          <option value="Afiliado">Afiliado</option>
+          <option value="Produtor">Produtor Digital</option>
+          <option value="Empresário">Empresário</option>
+          <option value="Freelancer">Freelancer</option>
+          <option value="Estudante">Estudante</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <select name="estadoCivil">
+          <option value="">Estado Civil (opcional)</option>
+          <option value="Solteiro(a)">Solteiro(a)</option>
+          <option value="Casado(a)">Casado(a)</option>
+          <option value="Divorciado(a)">Divorciado(a)</option>
+          <option value="Viúvo(a)">Viúvo(a)</option>
+        </select>
+
+        <select name="sexo">
+          <option value="">Gênero (opcional)</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+        </select>
+
+        <button type="submit" class="cta-premium">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          Criar Minha Conta Grátis
+        </button>
+
+        <p class="modal-link">Já tem conta? <a id="btnAbrirLogin">Entrar</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE LOGIN -->
+  <div id="modalLogin" class="modal">
+    <div class="modal-content glass-card">
+      <button class="modal-close" aria-label="Fechar">&times;</button>
+      <h2>Entrar</h2>
+      <p>Acesse sua conta Ultra Creators</p>
+
+      <div class="error-message" id="errorLogin"></div>
+
+      <form id="formLogin">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+
+        <button type="submit" class="cta-premium">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <polyline points="10 17 15 12 10 7"/>
+            <line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+          Entrar Agora
+        </button>
+
+        <p class="modal-link">Não tem conta? <a id="btnAbrirRegistro">Criar conta grátis</a></p>
+      </form>
+    </div>
+  </div>
+
   <!-- =========================================================
        HEADER
   ========================================================= -->
   <header>
     <div class="header-inner">
-      <a class="brand" href="#hero">ULTRA CREATORS</a>
-      <nav aria-label="Navegação principal">
-        <ul class="nav-links">
-          <li><a href="#social-proof">Prova Social</a></li>
-          <li><a href="#numbers">Números</a></li>
-          <li><a href="#training">Treinamento</a></li>
-          <li><a href="#method">Como Funciona</a></li>
-          <li><a href="#offer">Produtos</a></li>
-          <li><a href="#differentials">Diferenciais</a></li>
-          <li><a href="#bonuses">Bônus</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+      <div class="brand">ULTRA CREATORS</div>
+      <nav>
+        <div class="nav-links">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#metodo">Método</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <button data-modal="registro" class="header-cta">Começar Agora</button>
       </nav>
-      <button class="login-btn" id="loginBtn">Login</button>
-      <a class="header-cta register-trigger" href="#cta">Quero Acesso</a>
-      <button class="burger" type="button" aria-label="Abrir menu mobile" aria-expanded="false">
+      <button class="burger" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-    <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Menu mobile" aria-hidden="true">
+    <div class="mobile-nav">
       <ul>
-        <li><a href="#social-proof">Prova Social</a></li>
-        <li><a href="#numbers">Números</a></li>
-        <li><a href="#training">Treinamento</a></li>
-        <li><a href="#method">Como Funciona</a></li>
-        <li><a href="#offer">Produtos</a></li>
-        <li><a href="#differentials">Diferenciais</a></li>
-        <li><a href="#bonuses">Bônus</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a class="header-cta" href="#cta">Quero Acesso</a>
+      <button data-modal="registro" class="header-cta">Começar Agora</button>
     </div>
   </header>
 
-  <button class="back-to-top" type="button" aria-label="Voltar ao topo">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
-  </button>
-
+  <!-- =========================================================
+       MAIN CONTENT
+  ========================================================= -->
   <main>
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
-    <section id="hero" class="hero">
-      <div class="container reveal">
-        <span class="hero-badge">Curso 100% Gratuito</span>
-        <h1>Método Ultra Milionário</h1>
-        <p>Descubra como pessoas comuns estão faturando de R$5.000 a R$25.000 por mês como afiliados da Ultra Creators, mesmo sem experiência, sem aparecer e com uma estrutura completa pronta para você.</p>
-        <p>Um treinamento direto ao ponto que entrega estratégias comprovadas, materiais profissionais e acompanhamento contínuo para você acelerar resultados.</p>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          CURSO 100% GRATUITO
+        </div>
+
+        <h1>
+          Método Ultra <span class="highlight">Milionário</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Descubra o sistema exato que transformou pessoas comuns em afiliados de sucesso, gerando de <strong>R$5.000 a R$25.000 por mês</strong> com marketing digital — mesmo começando do zero.
+        </p>
+
         <div class="cta-group">
-          <a class="cta-button" href="#cta">Quero Acesso Gratuito Agora</a>
-          <div class="proof">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-            <span>Mais de 1.500 alunos já estão lucrando</span>
+          <button data-modal="registro" class="cta-premium">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Quero Começar Agora
+          </button>
+
+          <div class="social-proof">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Mais de 1.500 alunos já estão lucrando
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         NÚMEROS
-    ========================================================= -->
-    <section id="numbers">
+    <!-- NÚMEROS SECTION -->
+    <section class="numbers-section">
       <div class="container">
-        <div class="section-header reveal">
-          <span>Resultados</span>
-          <h2>Números que Comprovam</h2>
-          <p>Indicadores reais da performance dos afiliados que aplicam o Método Ultra Milionário todos os dias.</p>
-        </div>
-        <div class="numbers-grid">
-          <article class="numbers-card reveal">
-            <svg class="numbers-icon" viewBox="0 0 48 48" aria-hidden="true">
-              <g fill="none" stroke="var(--color-gold)" stroke-width="2">
-                <rect x="6" y="16" width="36" height="26" rx="4"/>
-                <path d="M6 22h36"/>
-                <circle cx="16" cy="28" r="3"/>
-                <circle cx="32" cy="28" r="3"/>
-              </g>
-            </svg>
-            <p class="numbers-value"><span class="counter" data-target="180000" data-prefix="R$ " data-suffix="+">R$ 0+</span></p>
-            <p class="numbers-label">Total pago em comissões</p>
-          </article>
-          <article class="numbers-card reveal">
-            <svg class="numbers-icon" viewBox="0 0 48 48" aria-hidden="true">
-              <g fill="none" stroke="var(--color-gold)" stroke-width="2">
-                <circle cx="24" cy="16" r="8"/>
-                <path d="M10 40c2-7 8-10 14-10s12 3 14 10"/>
-              </g>
-            </svg>
-            <p class="numbers-value"><span class="counter" data-target="1500" data-suffix="+">0+</span></p>
-            <p class="numbers-label">Afiliados ativos hoje</p>
-          </article>
-          <article class="numbers-card reveal">
-            <svg class="numbers-icon" viewBox="0 0 48 48" aria-hidden="true">
-              <g fill="none" stroke="var(--color-gold)" stroke-width="2">
-                <path d="M24 40s-14-9.2-14-21A8 8 0 0124 16a8 8 0 0114 3c0 11.8-14 21-14 21z"/>
-                <path d="M16 25l4 4 12-12" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-            </svg>
-            <p class="numbers-value"><span class="counter" data-target="98.7" data-decimals="1" data-suffix="%">0%</span></p>
-            <p class="numbers-label">Taxa de satisfação</p>
-          </article>
-          <article class="numbers-card reveal">
-            <svg class="numbers-icon" viewBox="0 0 48 48" aria-hidden="true">
-              <g fill="none" stroke="var(--color-gold)" stroke-width="2">
-                <path d="M8 32l9-9 8 6 9-10 6 5"/>
-                <path d="M8 38h32" stroke-linecap="round"/>
-                <circle cx="12" cy="12" r="2" fill="var(--color-gold)"/>
-                <circle cx="24" cy="6" r="2" fill="var(--color-gold)"/>
-                <circle cx="36" cy="16" r="2" fill="var(--color-gold)"/>
-              </g>
-            </svg>
-            <p class="numbers-value"><span class="counter" data-target="50" data-suffix="%">0%</span></p>
-            <p class="numbers-label">Comissão média</p>
-          </article>
+        <div class="numbers-grid reveal">
+          <div class="numbers-card">
+            <div class="numbers-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="numbers-value" data-target="2500000">R$ 0</div>
+            <div class="numbers-label">Em Comissões Geradas</div>
+          </div>
+
+          <div class="numbers-card">
+            <div class="numbers-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="numbers-value" data-target="1500">0+</div>
+            <div class="numbers-label">Afiliados Ativos</div>
+          </div>
+
+          <div class="numbers-card">
+            <div class="numbers-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="numbers-value" data-target="98">0%</div>
+            <div class="numbers-label">Satisfação dos Alunos</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         TREINAMENTO
-    ========================================================= -->
-    <section id="training">
+    <!-- BENEFÍCIOS SECTION -->
+    <section id="beneficios">
       <div class="container">
         <div class="section-header reveal">
-          <span>Treinamento</span>
-          <h2>O que você vai dominar</h2>
-          <p>Estrutura completa para aplicar estratégias de marketing de afiliados com consistência e profissionalismo.</p>
+          <span class="section-tag">POR QUE ESCOLHER</span>
+          <h2>O Que Você Vai Conquistar</h2>
+          <p>Tudo que você precisa para construir um negócio digital lucrativo e sustentável</p>
         </div>
-        <div class="features-grid">
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M4 5l8 6 8-6-8 12-8-12z"/></svg>
+
+        <div class="benefits-grid">
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
             </div>
-            <h3>Fundamentos de Elite</h3>
-            <p>Domine o modelo de negócio, entenda métricas e monte sua operação com clareza desde o primeiro dia.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4zm0 0v18m-7-9h14"/></svg>
+            <h3>Renda Extra Garantida</h3>
+            <p>Aprenda a gerar uma renda consistente de R$5.000 a R$25.000 por mês trabalhando no conforto da sua casa.</p>
+          </div>
+
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
             </div>
-            <h3>Produtos Validados</h3>
-            <p>Acesso ao catálogo Ultra com ofertas vencedoras, copy pronta e funis otimizados para conversão alta.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9a4 4 0 010 8H5zm0 8h11a4 4 0 010 8H5z"/></svg>
+            <h3>Liberdade de Tempo</h3>
+            <p>Trabalhe quando e de onde quiser. Tenha total controle sobre sua rotina e aproveite mais a vida.</p>
+          </div>
+
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
             </div>
-            <h3>Conteúdo & Tráfego</h3>
-            <p>Playbooks de conteúdo orgânico, roteiros de stories, scripts de vídeo e distribuição multiplataforma.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6l2 3h8v13H4z"/></svg>
+            <h3>Sistema Validado</h3>
+            <p>Método testado e aprovado por mais de 1.500 alunos que já estão lucrando com marketing de afiliados.</p>
+          </div>
+
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
             </div>
-            <h3>Automação e Suporte</h3>
-            <p>Ferramentas prontas, templates editáveis e acompanhamento próximo para você não travar em nenhuma etapa.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3v18m-7-7l-2 2 2 2m14-4l2 2-2 2"/></svg>
+            <h3>Suporte Completo</h3>
+            <p>Acesso a mentoria exclusiva, comunidade de alunos e suporte técnico para tirar todas as suas dúvidas.</p>
+          </div>
+
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
             </div>
-            <h3>Escala Sustentável</h3>
-            <p>Estratégias para ampliar faturamento mantendo margem, reputação e recorrência de vendas.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.75l3.09 6.26 6.91 1-5 4.88 1.18 6.9L12 17.77l-6.18 3.22L7 13.89 2 9.01l6.91-1z"/></svg>
+            <h3>Conteúdo Atualizado</h3>
+            <p>Estratégias modernas e atualizadas constantemente com as últimas tendências do mercado digital.</p>
+          </div>
+
+          <div class="benefit-card glass-card reveal">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                <line x1="7" y1="7" x2="7.01" y2="7"/>
+              </svg>
             </div>
-            <h3>Mentalidade Premium</h3>
-            <p>Rotina, metas e mindset dos afiliados que faturam múltiplos 5 dígitos com consistência e previsibilidade.</p>
-          </article>
+            <h3>Zero Investimento Inicial</h3>
+            <p>Comece sua jornada sem precisar investir dinheiro. Tudo que você precisa está 100% grátis.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         COMO FUNCIONA
-    ========================================================= -->
-    <section id="method">
+    <!-- MÉTODO SECTION -->
+    <section id="metodo">
       <div class="container">
         <div class="section-header reveal">
-          <span>Jornada</span>
-          <h2>Como Funciona o Método Ultra Milionário</h2>
-          <p>Quatro passos claros para sair do zero e construir uma operação de afiliados lucrativa com suporte profissional.</p>
+          <span class="section-tag">NOSSO PROCESSO</span>
+          <h2>Como Funciona o Método</h2>
+          <p>4 passos simples para transformar sua vida financeira</p>
         </div>
-        <div class="steps-grid">
-          <article class="step-card reveal" style="transition-delay: 0.05s;">
-            <span class="step-label">Passo 01</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm-7 9a7 7 0 0114 0"/></svg>
+
+        <div class="method-steps">
+          <div class="step-card reveal">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Cadastro e Acesso Imediato</h3>
+              <p>Faça seu cadastro gratuito e receba acesso instantâneo a todo o treinamento, materiais de apoio e comunidade exclusiva de alunos.</p>
             </div>
-            <h3>Acesso imediato</h3>
-            <p>Cadastre-se em minutos, desbloqueie o portal e receba o plano de ação completo sem custos.</p>
-          </article>
-          <article class="step-card reveal" style="transition-delay: 0.1s;">
-            <span class="step-label">Passo 02</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/></svg>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Aprenda as Estratégias Vencedoras</h3>
+              <p>Domine as técnicas exatas que afiliados de sucesso usam para gerar vendas todos os dias, mesmo sem aparecer ou ter audiência.</p>
             </div>
-            <h3>Estrutura pronta</h3>
-            <p>Receba links rastreados, páginas otimizadas, scripts e criativos atualizados para acelerar suas primeiras vendas.</p>
-          </article>
-          <article class="step-card reveal" style="transition-delay: 0.15s;">
-            <span class="step-label">Passo 03</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5l8-2 8 2v14l-8 2z"/></svg>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Implemente com Suporte Total</h3>
+              <p>Coloque em prática o que aprendeu com o apoio da nossa mentoria e comunidade. Você nunca estará sozinho nessa jornada.</p>
             </div>
-            <h3>Execução guiada</h3>
-            <p>Implemente estratégias diárias de conteúdo e tráfego orgânico com materiais de apoio e suporte especialista.</p>
-          </article>
-          <article class="step-card reveal" style="transition-delay: 0.2s;">
-            <span class="step-label">Passo 04</span>
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18l8-12 8 12H4z"/></svg>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Escale Seus Resultados</h3>
+              <p>Com as estratégias certas e consistência, amplifique seus ganhos e construa uma renda passiva sustentável e escalável.</p>
             </div>
-            <h3>Escala dos ganhos</h3>
-            <p>Otimize campanhas, expanda canais e mantenha acompanhamento semanal para multiplicar resultados.</p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         PROVA SOCIAL
-    ========================================================= -->
-    <section id="social-proof">
+    <!-- DEPOIMENTOS SECTION -->
+    <section id="depoimentos">
       <div class="container">
         <div class="section-header reveal">
-          <span>Prova Social</span>
-          <h2>Veja quem já está lucrando</h2>
-          <p>Histórias reais de afiliados que aplicaram o método e transformaram a renda com consistência.</p>
+          <span class="section-tag">HISTÓRIAS DE SUCESSO</span>
+          <h2>O Que Nossos Alunos Dizem</h2>
+          <p>Resultados reais de pessoas reais que transformaram suas vidas</p>
         </div>
+
         <div class="testimonials-grid">
-          <article class="testimonial-card reveal">
-            <div class="testimonial-author">
-              <img src="./fotomaria.jpg" alt="Foto de Maria Silva">
-              <div>
-                <strong>Maria Silva</strong>
-                <p class="tagline">R$ 8.500/mês</p>
+          <div class="testimonial-card glass-card reveal">
+            <div class="testimonial-header">
+              <img src="./fotoana.jpg" alt="Ana Silva" class="testimonial-photo">
+              <div class="testimonial-info">
+                <h4>Ana Silva</h4>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
               </div>
             </div>
-            <p class="testimonial-text">“Comecei do zero absoluto. Em três meses aplicando as aulas e os materiais prontos, bati meus primeiros 5 dígitos. O suporte diário faz toda a diferença.”</p>
-          </article>
-          <article class="testimonial-card reveal">
-            <div class="testimonial-author">
-              <img src="./fotojoao.jpg" alt="Foto de João Santos">
-              <div>
-                <strong>João Santos</strong>
-                <p class="tagline">R$ 12.300/mês</p>
+            <p class="testimonial-text">
+              "Nunca imaginei que poderia ganhar dinheiro com marketing digital. Em apenas 3 meses já estava faturando mais de R$8.000 por mês!"
+            </p>
+            <span class="testimonial-result">✓ R$8.000/mês em 3 meses</span>
+          </div>
+
+          <div class="testimonial-card glass-card reveal">
+            <div class="testimonial-header">
+              <img src="./fotojoao.jpg" alt="João Santos" class="testimonial-photo">
+              <div class="testimonial-info">
+                <h4>João Santos</h4>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
               </div>
             </div>
-            <p class="testimonial-text">“Troquei meu emprego tradicional pelo marketing de afiliados em cinco meses. O método é direto, com tudo pronto, sem enrolação. Resultados previsíveis toda semana.”</p>
-          </article>
-          <article class="testimonial-card reveal">
-            <div class="testimonial-author">
-              <img src="./fotoana.jpg" alt="Foto de Ana Costa">
-              <div>
-                <strong>Ana Costa</strong>
-                <p class="tagline">R$ 6.800/mês</p>
+            <p class="testimonial-text">
+              "O método Ultra Milionário mudou minha vida completamente. Hoje trabalho de casa e ganho 3x mais do que no meu antigo emprego."
+            </p>
+            <span class="testimonial-result">✓ 3x mais renda que antes</span>
+          </div>
+
+          <div class="testimonial-card glass-card reveal">
+            <div class="testimonial-header">
+              <img src="./fotomaria.jpg" alt="Maria Costa" class="testimonial-photo">
+              <div class="testimonial-info">
+                <h4>Maria Costa</h4>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
               </div>
             </div>
-            <p class="testimonial-text">“Utilizei os roteiros de conteúdo e a comunidade para ajustar minha comunicação. Hoje vendo todos os dias sem aparecer nas câmeras e com total segurança.”</p>
-          </article>
+            <p class="testimonial-text">
+              "Estava desempregada e desesperada. Hoje, graças ao Ultra Creators, tenho minha própria renda e liberdade financeira!"
+            </p>
+            <span class="testimonial-result">✓ De desempregada a R$12.000/mês</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         DIFERENCIAIS
-    ========================================================= -->
-    <section id="differentials">
-      <div class="container">
-        <div class="section-header reveal">
-          <span>Diferenciais</span>
-          <h2>Por que a Ultra Creators é Diferente</h2>
-          <p>Mais do que um curso, você entra em um ecossistema completo pensado para o sucesso dos afiliados.</p>
-        </div>
-        <div class="features-grid">
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11V7a3 3 0 013-3h10a3 3 0 013 3v4M4 11l8 4 8-4m-5 3l5 2m-11 0l-5 2m5-2v5m6-5v5"/></svg>
-            </div>
-            <h3>Pagamentos semanais</h3>
-            <p>Comissões via Pix toda segunda-feira com total transparência e painel em tempo real.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5zm0 9l9 4.5-9 4.5-9-4.5"/></svg>
-            </div>
-            <h3>Materiais ilimitados</h3>
-            <p>Biblioteca com centenas de criativos, scripts, páginas e funis atualizados toda semana.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5a7 7 0 00-7 7v4h14v-4a7 7 0 00-7-7zm0 14a3 3 0 006 0"/></svg>
-            </div>
-            <h3>Suporte dedicado</h3>
-            <p>Time especialista disponível em tempo real para ajudar na execução e tirar dúvidas pontuais.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/></svg>
-            </div>
-            <h3>Comunidade premium</h3>
-            <p>Networking com milhares de afiliados, insights diários e parcerias para acelerar resultados.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h4l2 3h8l-3 11H8L5 5z"/></svg>
-            </div>
-            <h3>Estratégias testadas</h3>
-            <p>Planos de ação validados internamente pela Ultra Creators, com métricas e atualizações constantes.</p>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h5"/></svg>
-            </div>
-            <h3>Sem taxa de adesão</h3>
-            <p>Participe gratuitamente, promova no seu ritmo e cresça com liberdade total.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         PRODUTOS / OFERTA
-    ========================================================= -->
-    <section id="offer">
-      <div class="container">
-        <div class="section-header reveal">
-          <span>Oferta</span>
-          <h2>O que você recebe como afiliado</h2>
-          <p>Um ecossistema completo de produtos, recursos e mentorias para você vender todos os dias.</p>
-        </div>
-        <div class="offer-grid">
-          <article class="offer-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M5 11h14m-9 4h9m-7 4h7"/></svg>
-            </div>
-            <h3>Catálogo premium</h3>
-            <p>Produtos digitais e físicos com alta demanda, comissões elevadas e páginas otimizadas para conversão.</p>
-          </article>
-          <article class="offer-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg>
-            </div>
-            <h3>Funis prontos</h3>
-            <p>Sequências de mensagens, emails e scripts validados para acelerar as primeiras vendas.</p>
-          </article>
-          <article class="offer-card reveal">
-            <div class="icon-circle">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4m0 10v4m9-9h-4M7 12H3m15.36-6.36l-2.83 2.83M8.47 15.53l-2.83 2.83m0-11.66l2.83 2.83m8.46 8.46l2.83 2.83"/></svg>
-            </div>
-            <h3>Mentorias ao vivo</h3>
-            <p>Encontros semanais com especialistas para destravar desafios e acompanhar seu progresso.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         BÔNUS
-    ========================================================= -->
-    <section id="bonuses">
-      <div class="container">
-        <div class="section-header reveal">
-          <span>Bônus</span>
-          <h2>Bônus Exclusivos</h2>
-          <p>Benefícios adicionais liberados para quem inicia hoje e implementa as estratégias imediatamente.</p>
-        </div>
-        <div class="bonus-grid">
-          <article class="bonus-card reveal">
-            <span>Bônus 01</span>
-            <h3>Guia Nichos Premium</h3>
-            <p>Mapeamento dos nichos mais rentáveis para 2025 com sugestões de copy, âncoras e avatar ideal.</p>
-          </article>
-          <article class="bonus-card reveal">
-            <span>Bônus 02</span>
-            <h3>Templates de Stories</h3>
-            <p>Pacote editável para Instagram e TikTok com design premium e roteiros prontos para vender.</p>
-          </article>
-          <article class="bonus-card reveal">
-            <span>Bônus 03</span>
-            <h3>Scripts de Conversão</h3>
-            <p>Sequências de mensagens para WhatsApp, Direct e Email testadas com altas taxas de fechamento.</p>
-          </article>
-          <article class="bonus-card reveal">
-            <span>Bônus 04</span>
-            <h3>Mentoria em grupo</h3>
-            <p>Encontros mensais focados em otimização, análise de métricas e escalabilidade da operação.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         FAQ
-    ========================================================= -->
+    <!-- FAQ SECTION -->
     <section id="faq">
       <div class="container">
         <div class="section-header reveal">
-          <span>FAQ</span>
+          <span class="section-tag">DÚVIDAS</span>
           <h2>Perguntas Frequentes</h2>
-          <p>Os pontos principais que respondem tudo o que você precisa antes de dar o próximo passo.</p>
+          <p>Respostas para as principais dúvidas sobre o método</p>
         </div>
-        <div class="faq-list">
-          <article class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
+
+        <div class="faq-container">
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              <span>O treinamento é realmente gratuito?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Sim! O acesso ao Método Ultra Milionário é 100% gratuito. Você não precisa pagar nada para começar a aprender e implementar as estratégias ensinadas.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              <span>Preciso ter experiência prévia?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Não! O método foi desenvolvido especialmente para iniciantes. Você aprenderá desde o básico até estratégias avançadas, tudo passo a passo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              <span>Quanto tempo leva para ver resultados?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Os resultados variam de pessoa para pessoa, mas muitos alunos começam a ver as primeiras vendas dentro de 30 a 60 dias aplicando o método com consistência.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
               <span>Preciso investir dinheiro para começar?</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" aria-hidden="true">
-              <p>Não. O acesso ao método é 100% gratuito e você já recebe materiais e estrutura completa para iniciar as divulgações imediatamente.</p>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Não! Uma das grandes vantagens do marketing de afiliados é que você pode começar sem investimento inicial. Você promove produtos de terceiros e recebe comissões pelas vendas.
+              </div>
             </div>
-          </article>
-          <article class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              <span>Quanto tempo leva para ter resultados?</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              <span>Terei suporte durante o treinamento?</span>
+              <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" aria-hidden="true">
-              <p>Nossos afiliados costumam gerar as primeiras comissões entre 7 e 21 dias, variando de acordo com a consistência de execução.</p>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Com certeza! Você terá acesso à nossa comunidade exclusiva de alunos, mentoria e suporte técnico para tirar todas as suas dúvidas ao longo da jornada.
+              </div>
             </div>
-          </article>
-          <article class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              <span>Preciso aparecer nas redes sociais?</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-question">
+              <span>Funciona para qualquer nicho?</span>
+              <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" aria-hidden="true">
-              <p>Não é obrigatório. Você recebe estratégias para vender sem mostrar o rosto, utilizando conteúdos prontos e automações.</p>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Sim! As estratégias ensinadas no Método Ultra Milionário funcionam para qualquer nicho de mercado. Você aprenderá princípios universais de marketing digital que podem ser aplicados em diversos segmentos.
+              </div>
             </div>
-          </article>
-          <article class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              <span>Como recebo as comissões?</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-            <div class="faq-answer" aria-hidden="true">
-              <p>Pagamentos semanais via Pix direto na sua conta cadastrada, com relatório detalhado disponível no dashboard.</p>
-            </div>
-          </article>
-          <article class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false">
-              <span>Tem suporte para iniciantes?</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            </button>
-            <div class="faq-answer" aria-hidden="true">
-              <p>Sim. Você conta com suporte humanizado, comunidade ativa e mentorias coletivas para destravar cada etapa.</p>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         CTA FINAL
-    ========================================================= -->
-    <section id="cta" class="final-cta">
-      <div class="container reveal">
-        <h2>Pronto para transformar sua renda?</h2>
-        <p>Entre para o Método Ultra Milionário, libere acesso imediato ao ecossistema Ultra Creators e tenha orientação premium para lucrar como afiliado sem complicações.</p>
-        <a class="cta-button register-trigger" href="#cta">Quero Acesso Gratuito Agora</a>
-        <div class="details">
-          <span>Cadastro em menos de 2 minutos</span>
-          <span>Sem cartão de crédito</span>
-          <span>Conteúdo atualizado semanalmente</span>
+    <!-- CTA FINAL SECTION -->
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-content">
+          <span class="urgency-badge">⚡ ÚLTIMAS VAGAS DISPONÍVEIS</span>
+
+          <h2>Está Pronto Para Transformar Sua Vida Financeira?</h2>
+
+          <p>Junte-se a mais de 1.500 alunos que já estão construindo sua liberdade financeira com o Método Ultra Milionário.</p>
+
+          <button data-modal="registro" class="cta-premium">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            Começar Agora Gratuitamente
+          </button>
+
+          <div class="guarantee">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            100% Gratuito • Sem Cartão de Crédito • Acesso Imediato
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- =========================================================
@@ -1799,693 +1825,432 @@
   ========================================================= -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h4>Ultra Creators</h4>
-          <p>A maior plataforma de afiliados premium do Brasil. Mais de 1.500 profissionais lucrando com estrutura, suporte e estratégia de elite.</p>
-          <div class="footer-socials">
-            <a href="https://www.instagram.com/creatorsultra" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/></svg>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Ultra Creators</h3>
+          <p style="color: var(--cinza-claro);">
+            Transformando vidas através do marketing de afiliados e educação digital de qualidade.
+          </p>
+          <div class="social-links" style="margin-top: 1.5rem;">
+            <a href="https://instagram.com/creatorsultra" target="_blank" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </a>
-            <a href="#" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11a9 9 0 1016.62 5.21L21 21l-4.79-1.38A9 9 0 103 11zm5.64-.5l.9-.14a1 1 0 01.9.28l.64.65a.6.6 0 010 .85l-.43.43a4.8 4.8 0 002.55 2.55l.43-.43a.6.6 0 01.85 0l.65.64a1 1 0 01.28.9l-.14.9a1 1 0 01-1 .84 6.6 6.6 0 01-6.16-6.16 1 1 0 01.83-1.01z"/></svg>
+            <a href="#" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
             </a>
-            <a href="#" aria-label="Telegram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5L2.5 11l5.2 2 2 6 4-3.5 5.5 4z"/></svg>
+            <a href="#" target="_blank" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+              </svg>
             </a>
           </div>
         </div>
-        <div class="footer-column">
-          <h4>Navegação</h4>
+
+        <div class="footer-section">
+          <h3>Links Rápidos</h3>
           <ul>
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#method">Como Funciona</a></li>
-            <li><a href="#offer">Produtos</a></li>
-            <li><a href="#cta">Cadastro</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#metodo">Como Funciona</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">Perguntas Frequentes</a></li>
           </ul>
         </div>
-        <div class="footer-column">
-          <h4>Recursos</h4>
+
+        <div class="footer-section">
+          <h3>Suporte</h3>
           <ul>
-            <li><a href="#training">Treinamento</a></li>
-            <li><a href="#social-proof">Depoimentos</a></li>
-            <li><a href="#differentials">Diferenciais</a></li>
-            <li><a href="#bonuses">Bônus</a></li>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Contato</a></li>
           </ul>
         </div>
-        <div class="footer-column">
-          <h4>Contato</h4>
-          <p>contato@ultracreators.com.br</p>
-          <p>+55 (11) 99999-9999</p>
-          <p>Seg a Sex · 9h às 18h</p>
+
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul>
+            <li style="color: var(--cinza-claro);">
+              <strong>Instagram:</strong><br>
+              <a href="https://instagram.com/creatorsultra" target="_blank">@creatorsultra</a>
+            </li>
+            <li style="color: var(--cinza-claro); margin-top: 1rem;">
+              <strong>Suporte:</strong><br>
+              suporte@ultracreators.com.br
+            </li>
+          </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <span>© 2025 Ultra Creators. Todos os direitos reservados.</span>
-        <div>
-          <a href="#">Termos de Uso</a> ·
-          <a href="#">Política de Privacidade</a> ·
-          <a href="#">Suporte</a>
-        </div>
+        <p>&copy; 2025 Ultra Creators. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
   <!-- =========================================================
-       AUTHENTICATION MODALS
-  ========================================================= -->
-  <!-- Login Modal -->
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>Login</h2>
-        <p>Acesse sua conta Ultra Creators</p>
-        <button class="modal-close" onclick="closeModal('loginModal')">
-          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="error-message" id="loginError"></div>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="loginEmail">Email <span class="required">*</span></label>
-            <input type="email" id="loginEmail" name="email" required placeholder="seu@email.com">
-          </div>
-          <div class="form-group">
-            <label for="loginPassword">Senha <span class="required">*</span></label>
-            <input type="password" id="loginPassword" name="senha" required placeholder="••••••••">
-          </div>
-          <button type="submit" class="form-submit" id="loginSubmitBtn">Entrar</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        Não tem uma conta? <a onclick="switchToRegister()">Cadastre-se</a><br>
-        <a onclick="alert('Entre em contato com o suporte: contato@ultracreators.com.br')">Esqueceu a senha?</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Register Modal -->
-  <div class="modal-overlay" id="registerModal">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>Criar Conta</h2>
-        <p>Junte-se à Ultra Creators e comece a lucrar</p>
-        <button class="modal-close" onclick="closeModal('registerModal')">
-          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="error-message" id="registerError"></div>
-        <div class="success-message" id="registerSuccess"></div>
-        <form id="registerForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="regNome">Nome <span class="required">*</span></label>
-              <input type="text" id="regNome" name="nome" required placeholder="João">
-            </div>
-            <div class="form-group">
-              <label for="regSobrenome">Sobrenome <span class="required">*</span></label>
-              <input type="text" id="regSobrenome" name="sobrenome" required placeholder="Silva">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="regEmail">Email <span class="required">*</span></label>
-            <input type="email" id="regEmail" name="email" required placeholder="seu@email.com">
-          </div>
-          <div class="form-group">
-            <label for="regSenha">Senha <span class="required">*</span></label>
-            <input type="password" id="regSenha" name="senha" required placeholder="Mínimo 6 caracteres">
-          </div>
-          <div class="form-group">
-            <label for="regCelular">Celular <span class="required">*</span></label>
-            <input type="tel" id="regCelular" name="celular" required placeholder="(11) 99999-9999">
-          </div>
-          <div class="form-group">
-            <label for="regTrabalho">Com o que trabalha? <span class="optional">(opcional)</span></label>
-            <select id="regTrabalho" name="comOQueTrabalha">
-              <option value="">Selecione...</option>
-              <option value="Administração">Administração</option>
-              <option value="Advocacia">Advocacia</option>
-              <option value="Arquitetura">Arquitetura</option>
-              <option value="Artes">Artes</option>
-              <option value="Ciências">Ciências</option>
-              <option value="Comércio">Comércio</option>
-              <option value="Comunicação">Comunicação</option>
-              <option value="Construção Civil">Construção Civil</option>
-              <option value="Contabilidade">Contabilidade</option>
-              <option value="Design">Design</option>
-              <option value="Educação">Educação</option>
-              <option value="Engenharia">Engenharia</option>
-              <option value="Entretenimento">Entretenimento</option>
-              <option value="Estudante">Estudante</option>
-              <option value="Gastronomia">Gastronomia</option>
-              <option value="Gestão">Gestão</option>
-              <option value="Indústria">Indústria</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Medicina">Medicina</option>
-              <option value="Saúde">Saúde</option>
-              <option value="Serviços">Serviços</option>
-              <option value="Tecnologia">Tecnologia</option>
-              <option value="Turismo">Turismo</option>
-              <option value="Desempregado(a)">Desempregado(a)</option>
-              <option value="Autônomo(a)">Autônomo(a)</option>
-              <option value="Empreendedor(a)">Empreendedor(a)</option>
-              <option value="Aposentado(a)">Aposentado(a)</option>
-              <option value="Outro">Outro</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="regEstadoCivil">Estado Civil <span class="optional">(opcional)</span></label>
-              <select id="regEstadoCivil" name="estadoCivil">
-                <option value="">Selecione...</option>
-                <option value="Solteiro(a)">Solteiro(a)</option>
-                <option value="Casado(a)">Casado(a)</option>
-                <option value="Divorciado(a)">Divorciado(a)</option>
-                <option value="Viúvo(a)">Viúvo(a)</option>
-                <option value="União Estável">União Estável</option>
-                <option value="Outro">Outro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="regSexo">Gênero <span class="optional">(opcional)</span></label>
-              <select id="regSexo" name="sexo">
-                <option value="">Selecione...</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-                <option value="Não-binário">Não-binário</option>
-                <option value="Prefiro não informar">Prefiro não informar</option>
-                <option value="Outro">Outro</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="form-submit" id="registerSubmitBtn">Criar Minha Conta</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        Já tem uma conta? <a onclick="switchToLogin()">Faça login</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Email Verification Modal -->
-  <div class="modal-overlay" id="verifyEmailModal">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>Verifique seu Email</h2>
-        <p>Enviamos um link de verificação para seu email</p>
-        <button class="modal-close" onclick="closeModal('verifyEmailModal')">
-          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p style="color: var(--color-gray); text-align: center; margin-bottom: 1.5rem;">
-          Verifique sua caixa de entrada (e spam) para ativar sua conta. O link é válido por 24 horas.
-        </p>
-        <div style="text-align: center; padding: 2rem;">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="1.5">
-            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-          </svg>
-        </div>
-        <p style="color: var(--color-gray-soft); text-align: center; font-size: 0.9rem;">
-          Não recebeu o email? <a onclick="resendVerification()" style="color: var(--color-gold); cursor: pointer; text-decoration: underline;">Reenviar</a>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       SCRIPTS
+       JAVASCRIPT
   ========================================================= -->
   <script>
-    (function() {
-      const body = document.body;
-      const burger = document.querySelector('.burger');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const backToTop = document.querySelector('.back-to-top');
-      const navLinks = document.querySelectorAll('a[href^="#"]');
-      const revealItems = document.querySelectorAll('.reveal');
-      const counters = document.querySelectorAll('.counter');
-      const faqItems = document.querySelectorAll('.faq-item');
-
-      const toggleMobileNav = (open) => {
-        if (!burger || !mobileNav) return;
-        const isOpen = open !== undefined ? open : !mobileNav.classList.contains('active');
-        mobileNav.classList.toggle('active', isOpen);
-        burger.setAttribute('aria-expanded', String(isOpen));
-        burger.setAttribute('aria-label', isOpen ? 'Fechar menu mobile' : 'Abrir menu mobile');
-        burger.classList.toggle('is-active', isOpen);
-        body.classList.toggle('nav-open', isOpen);
-        mobileNav.setAttribute('aria-hidden', String(!isOpen));
-        if (isOpen) {
-          mobileNav.scrollTop = 0;
-        }
-      };
-
-      if (burger) {
-        burger.addEventListener('click', () => toggleMobileNav());
-      }
-
-      if (mobileNav) {
-        mobileNav.addEventListener('click', (event) => {
-          if (event.target.matches('a')) {
-            toggleMobileNav(false);
-          }
-        });
-        document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape') {
-            toggleMobileNav(false);
-          }
-        });
-        window.addEventListener('resize', () => {
-          if (window.innerWidth > 1023) {
-            toggleMobileNav(false);
-          }
-        });
-      }
-
-      if (navLinks.length) {
-        navLinks.forEach((link) => {
-          link.addEventListener('click', (event) => {
-            const targetId = link.getAttribute('href');
-            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
-              const target = document.querySelector(targetId);
-              if (target) {
-                event.preventDefault();
-                const headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80;
-                const offset = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                window.scrollTo({ top: offset, behavior: 'smooth' });
-              }
-            }
-          });
-        });
-      }
-
-      const onScroll = () => {
-        if (!backToTop) return;
-        if (window.scrollY > 400) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      };
-
-      if (backToTop) {
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        window.addEventListener('scroll', onScroll, { passive: true });
-      }
-
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-
-      if (revealItems.length) {
-        revealItems.forEach((item) => revealObserver.observe(item));
-      }
-
-      const animateCounter = (el) => {
-        const targetValue = Number(el.dataset.target || 0);
-        const decimals = parseInt(el.dataset.decimals || '0', 10);
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
-        const duration = 1600;
-        const startTime = performance.now();
-
-        const formatValue = (value) => {
-          if (decimals > 0) {
-            const normalized = Number(value.toFixed(decimals));
-            return normalized.toLocaleString('pt-BR', {
-              minimumFractionDigits: decimals,
-              maximumFractionDigits: decimals,
-            });
-          }
-
-          return Math.round(value).toLocaleString('pt-BR');
-        };
-
-        const step = (currentTime) => {
-          const progress = Math.min((currentTime - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const currentValue = targetValue * eased;
-          el.textContent = `${prefix}${formatValue(currentValue)}${suffix}`;
-
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            el.textContent = `${prefix}${formatValue(targetValue)}${suffix}`;
-          }
-        };
-
-        requestAnimationFrame(step);
-      };
-
-      if (counters.length) {
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const counter = entry.target;
-              if (!counter.dataset.animated) {
-                animateCounter(counter);
-                counter.dataset.animated = 'true';
-              }
-              observer.unobserve(counter);
-            }
-          });
-        }, { threshold: 0.4 });
-
-        counters.forEach((counter) => counterObserver.observe(counter));
-      }
-
-      if (faqItems.length) {
-        faqItems.forEach((item) => {
-          const question = item.querySelector('.faq-question');
-          const answer = item.querySelector('.faq-answer');
-          if (!question || !answer) return;
-
-          question.addEventListener('click', () => {
-            const isExpanded = question.getAttribute('aria-expanded') === 'true';
-            faqItems.forEach((otherItem) => {
-              const otherQuestion = otherItem.querySelector('.faq-question');
-              const otherAnswer = otherItem.querySelector('.faq-answer');
-              if (otherQuestion && otherAnswer && otherQuestion !== question) {
-                otherQuestion.setAttribute('aria-expanded', 'false');
-                otherAnswer.style.maxHeight = null;
-                otherAnswer.setAttribute('aria-hidden', 'true');
-              }
-            });
-
-            if (!isExpanded) {
-              question.setAttribute('aria-expanded', 'true');
-              answer.style.maxHeight = answer.scrollHeight + 'px';
-              answer.setAttribute('aria-hidden', 'false');
-            } else {
-              question.setAttribute('aria-expanded', 'false');
-              answer.style.maxHeight = null;
-              answer.setAttribute('aria-hidden', 'true');
-            }
-          });
-        });
-      }
-    })();
+    // =========================================================
+    // CONFIGURAÇÃO DA API
+    // =========================================================
+    const API_URL = 'http://localhost:3000/api/auth';
 
     // =========================================================
-    // AUTHENTICATION FUNCTIONS
+    // ELEMENTOS DOS MODAIS
     // =========================================================
-    const API_URL = 'http://localhost:5000/api/auth';
-    let currentUserEmail = '';
+    const modalRegistro = document.getElementById('modalRegistro');
+    const modalLogin = document.getElementById('modalLogin');
+    const formRegistro = document.getElementById('formRegistro');
+    const formLogin = document.getElementById('formLogin');
+    const errorRegistro = document.getElementById('errorRegistro');
+    const errorLogin = document.getElementById('errorLogin');
 
-    // Modal functions
-    function openModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+    // =========================================================
+    // FUNÇÕES DE MODAL
+    // =========================================================
+    function abrirModal(modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        // Clear forms and messages
-        const form = modal.querySelector('form');
-        if (form) form.reset();
-        hideError(modalId.replace('Modal', 'Error'));
-        hideSuccess(modalId.replace('Modal', 'Success'));
-      }
+    function fecharModal(modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
     }
 
-    function switchToLogin() {
-      closeModal('registerModal');
-      openModal('loginModal');
+    function mostrarErro(elemento, mensagem) {
+      elemento.textContent = mensagem;
+      elemento.classList.add('active');
+      setTimeout(() => {
+        elemento.classList.remove('active');
+      }, 5000);
     }
 
-    function switchToRegister() {
-      closeModal('loginModal');
-      openModal('registerModal');
-    }
-
-    function showError(elementId, message) {
-      const el = document.getElementById(elementId);
-      if (el) {
-        el.textContent = message;
-        el.classList.add('active');
-      }
-    }
-
-    function hideError(elementId) {
-      const el = document.getElementById(elementId);
-      if (el) {
-        el.classList.remove('active');
-      }
-    }
-
-    function showSuccess(elementId, message) {
-      const el = document.getElementById(elementId);
-      if (el) {
-        el.textContent = message;
-        el.classList.add('active');
-      }
-    }
-
-    function hideSuccess(elementId) {
-      const el = document.getElementById(elementId);
-      if (el) {
-        el.classList.remove('active');
-      }
-    }
-
-    // Close modal when clicking overlay
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-          closeModal(overlay.id);
-        }
-      });
-    });
-
-    // Login button click
-    document.getElementById('loginBtn')?.addEventListener('click', () => {
-      openModal('loginModal');
-    });
-
-    // Connect all register triggers
-    document.querySelectorAll('.register-trigger').forEach(btn => {
+    // =========================================================
+    // ABRIR MODAIS
+    // =========================================================
+    document.querySelectorAll('[data-modal="registro"]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        openModal('registerModal');
+        abrirModal(modalRegistro);
       });
     });
 
-    // Also connect the CTA buttons
-    document.querySelectorAll('a[href="#cta"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (!link.classList.contains('register-trigger')) {
-          e.preventDefault();
-          openModal('registerModal');
+    document.querySelectorAll('[data-modal="login"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        abrirModal(modalLogin);
+      });
+    });
+
+    // =========================================================
+    // FECHAR MODAIS
+    // =========================================================
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        fecharModal(modalRegistro);
+        fecharModal(modalLogin);
+      });
+    });
+
+    // Fechar ao clicar fora
+    [modalRegistro, modalLogin].forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          fecharModal(modal);
         }
       });
     });
 
-    // Login form submission
-    document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      hideError('loginError');
-
-      const submitBtn = document.getElementById('loginSubmitBtn');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Entrando...';
-
-      const formData = {
-        email: document.getElementById('loginEmail').value,
-        senha: document.getElementById('loginPassword').value
-      };
-
-      try {
-        const response = await fetch(`${API_URL}/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-          // Store token
-          localStorage.setItem('authToken', data.token);
-          localStorage.setItem('userData', JSON.stringify(data.data));
-
-          // Redirect to users page
-          window.location.href = 'users.html';
-        } else {
-          showError('loginError', data.message || 'Erro ao fazer login');
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        }
-      } catch (error) {
-        console.error('Login error:', error);
-        showError('loginError', 'Erro ao conectar com o servidor. Verifique se o backend está rodando.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        fecharModal(modalRegistro);
+        fecharModal(modalLogin);
       }
     });
 
-    // Register form submission
-    document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
+    // =========================================================
+    // ALTERNAR ENTRE MODAIS
+    // =========================================================
+    document.getElementById('btnAbrirLogin').addEventListener('click', (e) => {
       e.preventDefault();
-      hideError('registerError');
-      hideSuccess('registerSuccess');
+      fecharModal(modalRegistro);
+      abrirModal(modalLogin);
+    });
 
-      const submitBtn = document.getElementById('registerSubmitBtn');
-      const originalText = submitBtn.textContent;
+    document.getElementById('btnAbrirRegistro').addEventListener('click', (e) => {
+      e.preventDefault();
+      fecharModal(modalLogin);
+      abrirModal(modalRegistro);
+    });
+
+    // =========================================================
+    // REGISTRO
+    // =========================================================
+    formRegistro.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = formRegistro.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      // Desabilitar botão e mostrar loading
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Criando conta...';
+      submitBtn.innerHTML = '<span style="font-size: 1rem;">Criando conta...</span>';
 
-      const formData = {
-        nome: document.getElementById('regNome').value,
-        sobrenome: document.getElementById('regSobrenome').value,
-        email: document.getElementById('regEmail').value,
-        senha: document.getElementById('regSenha').value,
-        celular: document.getElementById('regCelular').value,
-        comOQueTrabalha: document.getElementById('regTrabalho').value || null,
-        estadoCivil: document.getElementById('regEstadoCivil').value || null,
-        sexo: document.getElementById('regSexo').value || null
-      };
+      const formData = new FormData(formRegistro);
+      const data = Object.fromEntries(formData);
 
-      // Store email for resend verification
-      currentUserEmail = formData.email;
+      // Remover campos vazios opcionais
+      Object.keys(data).forEach(key => {
+        if (!data[key]) delete data[key];
+      });
 
       try {
         const response = await fetch(`${API_URL}/register`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
         });
 
-        const data = await response.json();
+        const result = await response.json();
 
-        if (data.success) {
-          // Show success message
-          showSuccess('registerSuccess', data.message);
-
-          // Clear form
-          document.getElementById('registerForm').reset();
-
-          // Show verification modal after 2 seconds
-          setTimeout(() => {
-            closeModal('registerModal');
-            openModal('verifyEmailModal');
-          }, 2000);
-        } else {
-          showError('registerError', data.message || 'Erro ao criar conta');
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        }
-      } catch (error) {
-        console.error('Register error:', error);
-        showError('registerError', 'Erro ao conectar com o servidor. Verifique se o backend está rodando.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }
-    });
-
-    // Resend verification email
-    async function resendVerification() {
-      if (!currentUserEmail) {
-        alert('Por favor, tente se cadastrar novamente.');
-        return;
-      }
-
-      try {
-        const response = await fetch(`${API_URL}/resend-verification`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email: currentUserEmail })
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-          alert('Email de verificação reenviado com sucesso!');
-        } else {
-          alert(data.message || 'Erro ao reenviar email');
-        }
-      } catch (error) {
-        console.error('Resend error:', error);
-        alert('Erro ao conectar com o servidor');
-      }
-    }
-
-    // Check for email verification token in URL
-    window.addEventListener('DOMContentLoaded', async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get('token');
-
-      if (token) {
-        try {
-          const response = await fetch(`${API_URL}/verify-email`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token })
-          });
-
-          const data = await response.json();
-
-          if (data.success) {
-            // Store token and redirect
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('userData', JSON.stringify(data.data));
-
-            alert('Email verificado com sucesso! Redirecionando...');
+        if (result.success) {
+          if (result.token) {
+            // Auto-verificado (desenvolvimento)
+            localStorage.setItem('authToken', result.token);
+            localStorage.setItem('userData', JSON.stringify(result.data));
             window.location.href = 'users.html';
           } else {
-            alert(data.message || 'Token de verificação inválido ou expirado');
-            window.location.href = 'indexoficial.html';
+            // Mostrar mensagem de verificação
+            mostrarErro(errorRegistro, result.message || 'Conta criada! Verifique seu email para ativar.');
+            formRegistro.reset();
           }
-        } catch (error) {
-          console.error('Verification error:', error);
-          alert('Erro ao verificar email');
-          window.location.href = 'indexoficial.html';
+        } else {
+          mostrarErro(errorRegistro, result.message || 'Erro ao criar conta. Tente novamente.');
         }
+      } catch (error) {
+        console.error('Erro:', error);
+        mostrarErro(errorRegistro, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em http://localhost:3000');
+      } finally {
+        // Restaurar botão
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
       }
     });
 
-    // Check authentication status
-    function checkAuth() {
-      const token = localStorage.getItem('authToken');
-      const userData = localStorage.getItem('userData');
+    // =========================================================
+    // LOGIN
+    // =========================================================
+    formLogin.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-      if (token && userData) {
-        // User is logged in, you can show their name or a logout button
-        const user = JSON.parse(userData);
-        const loginBtn = document.getElementById('loginBtn');
-        if (loginBtn) {
-          loginBtn.textContent = `Olá, ${user.nome}`;
-          loginBtn.onclick = () => {
-            window.location.href = 'users.html';
-          };
+      const submitBtn = formLogin.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      // Desabilitar botão e mostrar loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span style="font-size: 1rem;">Entrando...</span>';
+
+      const formData = new FormData(formLogin);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch(`${API_URL}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          localStorage.setItem('authToken', result.token);
+          localStorage.setItem('userData', JSON.stringify(result.data));
+          window.location.href = 'users.html';
+        } else {
+          mostrarErro(errorLogin, result.message || 'Email ou senha incorretos.');
         }
+      } catch (error) {
+        console.error('Erro:', error);
+        mostrarErro(errorLogin, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em http://localhost:3000');
+      } finally {
+        // Restaurar botão
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
       }
-    }
+    });
 
-    // Run auth check on page load
-    checkAuth();
+    // =========================================================
+    // MOBILE MENU
+    // =========================================================
+    const burger = document.querySelector('.burger');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const body = document.body;
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Fechar menu ao clicar em link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+
+    // =========================================================
+    // SCROLL REVEAL
+    // =========================================================
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // =========================================================
+    // ANIMATED COUNTERS
+    // =========================================================
+    const animateCounter = (element, target, suffix = '') => {
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+
+        if (suffix === 'R$') {
+          element.textContent = `R$ ${Math.floor(current).toLocaleString('pt-BR')}`;
+        } else if (suffix === '+') {
+          element.textContent = `${Math.floor(current)}+`;
+        } else if (suffix === '%') {
+          element.textContent = `${Math.floor(current)}%`;
+        } else {
+          element.textContent = Math.floor(current).toLocaleString('pt-BR');
+        }
+      }, 16);
+    };
+
+    // Iniciar contadores quando visíveis
+    const numberValues = document.querySelectorAll('.numbers-value');
+    let countersStarted = false;
+
+    const startCounters = () => {
+      if (countersStarted) return;
+
+      const firstNumber = numberValues[0];
+      const rect = firstNumber.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight - 100) {
+        countersStarted = true;
+
+        numberValues.forEach(el => {
+          const target = parseInt(el.dataset.target);
+          const text = el.textContent;
+
+          if (text.includes('R$')) {
+            animateCounter(el, target, 'R$');
+          } else if (text.includes('+')) {
+            animateCounter(el, target, '+');
+          } else if (text.includes('%')) {
+            animateCounter(el, target, '%');
+          }
+        });
+      }
+    };
+
+    window.addEventListener('scroll', startCounters);
+    window.addEventListener('load', startCounters);
+
+    // =========================================================
+    // FAQ ACCORDION
+    // =========================================================
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Fechar todos os outros
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+        });
+
+        // Abrir/fechar o clicado
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // =========================================================
+    // SMOOTH SCROLL
+    // =========================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+          const headerHeight = 80;
+          const targetPosition = target.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // =========================================================
+    // HEADER SCROLL EFFECT
+    // =========================================================
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > 100) {
+        header.style.background = 'rgba(0, 0, 0, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+      } else {
+        header.style.background = 'rgba(0, 0, 0, 0.9)';
+        header.style.boxShadow = 'none';
+      }
+
+      lastScroll = currentScroll;
+    });
   </script>
+
 </body>
 </html>

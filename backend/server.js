@@ -1,10 +1,9 @@
+
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-
-// Load environment variables
-dotenv.config();
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -14,8 +13,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true
+  origin: '*', // Permite todas as origens (incluindo file://)
+  credentials: false
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -45,7 +44,7 @@ app.use((err, req, res, next) => {
 // MongoDB Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log('✅ MongoDB conectado com sucesso!');
   } catch (error) {
     console.error('❌ Erro ao conectar ao MongoDB:', error.message);

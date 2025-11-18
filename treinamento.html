@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./ultracreators.PNG" />
+  <title>Treinamentos · Ultra Creators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-black: #000000;
+      --color-black-alt: #111111;
+      --color-gold: #d4af37;
+      --color-gold-dark: #b89418;
+      --color-white: #ffffff;
+      --color-gray: #c7c7c7;
+      --color-green: #00ff88;
+      --max-width: 1180px;
+      --radius-card: 18px;
+      --transition-base: 0.28s ease;
+      --header-height: 84px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.88);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+      z-index: 1800;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(calc(100% - 3rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 1.25rem;
+      letter-spacing: 0.28em;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .user-name {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+    }
+
+    .logout-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      background-color: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+
+    .logout-btn:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      transform: translateY(-1px);
+    }
+
+    main {
+      padding-top: calc(var(--header-height) + 3rem);
+      min-height: 100vh;
+      padding-bottom: 3rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-gold);
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .page-header p {
+      color: var(--color-gray);
+      font-size: 1.1rem;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background-color: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      color: var(--color-gold);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--color-gray);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .course-card {
+      background-color: var(--color-black-alt);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      cursor: pointer;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
+    }
+
+    .course-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #181818, #0b0b0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .play-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 18px solid var(--color-black);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+
+    .course-content {
+      padding: 1.5rem;
+    }
+
+    .course-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 999px;
+      color: var(--color-gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .course-badge.completed {
+      background: rgba(0, 255, 136, 0.15);
+      border-color: rgba(0, 255, 136, 0.4);
+      color: var(--color-green);
+    }
+
+    .course-title {
+      font-size: 1.3rem;
+      color: var(--color-white);
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+
+    .course-description {
+      color: var(--color-gray);
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(212, 175, 55, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-dark));
+      transition: width 0.5s ease;
+    }
+
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
+      font-size: 0.85rem;
+      color: var(--color-gray);
+    }
+
+    @media (max-width: 767px) {
+      .courses-grid { grid-template-columns: 1fr; }
+      .user-name { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="users.html">ULTRA CREATORS</a>
+      <div class="user-menu">
+        <span class="user-name" id="headerUserName"></span>
+        <button class="logout-btn" id="logoutBtn">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Treinamentos</h1>
+        <p>Acesse o Método Ultra Milionário e todos os conteúdos exclusivos</p>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Cursos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0</div>
+          <div class="stat-label">Aulas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0h</div>
+          <div class="stat-label">Conteúdo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0%</div>
+          <div class="stat-label">Progresso</div>
+        </div>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Fundamentos do Marketing Digital</h3>
+            <p class="course-description">Aprenda os conceitos essenciais do marketing digital e como aplicá-los.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Tráfego Pago para Iniciantes</h3>
+            <p class="course-description">Domine estratégias de Facebook Ads, Google Ads e TikTok Ads.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Copywriting Persuasivo</h3>
+            <p class="course-description">Escreva textos que convertem com técnicas dos melhores copywriters.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Funis de Vendas de Alta Conversão</h3>
+            <p class="course-description">Construa funis que geram vendas no automático e escale resultados.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Email Marketing Avançado</h3>
+            <p class="course-description">Crie sequências de email que engajam e vendem todos os dias.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-thumbnail">
+            <div class="play-icon"></div>
+          </div>
+          <div class="course-content">
+            <span class="course-badge">Em breve</span>
+            <h3 class="course-title">Automação de Marketing</h3>
+            <p class="course-description">Automatize processos e escale seu negócio com ferramentas.</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="course-meta">
+              <span>⏱ 0h</span>
+              <span>📚 0 aulas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Check authentication
+    function checkAuth() {
+      const token = localStorage.getItem('authToken');
+      const userData = localStorage.getItem('userData');
+
+      if (!token || !userData) {
+        window.location.href = 'indexoficial.html';
+        return null;
+      }
+
+      return JSON.parse(userData);
+    }
+
+    // Load user data
+    function loadUserData() {
+      const user = checkAuth();
+      if (!user) return;
+
+      // Update header with user name
+      document.getElementById('headerUserName').textContent = `${user.nome} ${user.sobrenome}`;
+    }
+
+    // Logout function
+    function logout() {
+      if (confirm('Tem certeza que deseja sair?')) {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userData');
+        window.location.href = 'indexoficial.html';
+      }
+    }
+
+    // Event listeners
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', loadUserData);
+  </script>
+</body>
+</html>

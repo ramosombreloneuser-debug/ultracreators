@@ -78,27 +78,52 @@ router.post('/register', async (req, res) => {
       sexo: sexo || null
     });
 
-    // Generate email verification token
-    const verificationToken = user.generateEmailVerificationToken();
-    await user.save();
+    // Auto-verify in development mode
+    if (process.env.AUTO_VERIFY_EMAIL === 'true') {
+      user.isEmailVerified = true;
+      await user.save();
 
-    // Send verification email
-    try {
-      await sendVerificationEmail(user, verificationToken);
-    } catch (error) {
-      console.error('Erro ao enviar email:', error);
-      // Don't fail registration if email fails
-    }
+      // Generate JWT token
+      const authToken = generateToken(user._id);
 
-    res.status(201).json({
-      success: true,
-      message: 'Cadastro realizado com sucesso! Verifique seu email para ativar sua conta.',
-      data: {
-        userId: user._id,
-        nome: user.nome,
-        email: user.email
+      res.status(201).json({
+        success: true,
+        message: 'Cadastro realizado com sucesso! Conta verificada automaticamente (modo desenvolvimento).',
+        token: authToken,
+        data: {
+          id: user._id,
+          nome: user.nome,
+          sobrenome: user.sobrenome,
+          email: user.email,
+          celular: user.celular,
+          comOQueTrabalha: user.comOQueTrabalha,
+          estadoCivil: user.estadoCivil,
+          sexo: user.sexo
+        }
+      });
+    } else {
+      // Generate email verification token
+      const verificationToken = user.generateEmailVerificationToken();
+      await user.save();
+
+      // Send verification email
+      try {
+        await sendVerificationEmail(user, verificationToken);
+      } catch (error) {
+        console.error('Erro ao enviar email:', error);
+        // Don't fail registration if email fails
       }
-    });
+
+      res.status(201).json({
+        success: true,
+        message: 'Cadastro realizado com sucesso! Verifique seu email para ativar sua conta.',
+        data: {
+          userId: user._id,
+          nome: user.nome,
+          email: user.email
+        }
+      });
+    }
   } catch (error) {
     console.error('Erro no registro:', error);
 
