@@ -2065,7 +2065,7 @@
     // =========================================================
     // CONFIGURAÇÃO DA API
     // =========================================================
-    const API_URL = 'http://localhost:5000/api/auth';
+    const API_URL = 'https://api.ultracreators.com.br';
 
     // =========================================================
     // ELEMENTOS DOS MODAIS
@@ -2250,7 +2250,7 @@
         }
       } catch (error) {
         console.error('Erro:', error);
-        mostrarErro(errorRegistro, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em http://localhost:5000');
+        mostrarErro(errorRegistro, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em https://api.ultracreators.com.br');
       } finally {
         // Restaurar botão
         submitBtn.disabled = false;
@@ -2298,7 +2298,7 @@
         }
       } catch (error) {
         console.error('Erro:', error);
-        mostrarErro(errorLogin, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em http://localhost:5000');
+        mostrarErro(errorLogin, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em https://api.ultracreators.com.br');
       } finally {
         // Restaurar botão
         submitBtn.disabled = false;
@@ -2345,7 +2345,7 @@
         }
       } catch (error) {
         console.error('Erro:', error);
-        mostrarErro(errorRecuperar, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em http://localhost:5000');
+        mostrarErro(errorRecuperar, 'Erro ao conectar com o servidor. Verifique se o backend está rodando em https://api.ultracreators.com.br');
       } finally {
         // Restaurar botão
         submitBtn.disabled = false;
